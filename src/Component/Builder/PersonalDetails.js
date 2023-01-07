@@ -31,7 +31,7 @@ export default function PersonalDetails() {
           >
             Wanted Job Title
           </Typography>
-          <TextField variant="filled" size="small" fullWidth placeholder="e.g UI/UX Designer"/>
+          <TextField variant="filled" size="small" fullWidth />
         </Grid>
         <Grid item xs={12} md={6}></Grid>
         <Grid item xs={12} md={6}>
