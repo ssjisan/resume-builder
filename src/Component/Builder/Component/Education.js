@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-export default function EmploymentHistory() {
+export default function Education() {
   const [value, setValue] = useState();
 
   return (
@@ -16,18 +16,18 @@ export default function EmploymentHistory() {
         justifyCOntent: "flex-start",
         width: "100%",
         mt: 3,
+        mb: 3,
       }}
     >
       <Typography
         sx={{ fontSize: "24px", fontWeight: 600, mb: 2 }}
         color="text.500"
       >
-        Employment History
+        Education
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
-        Show your relevant experience (last 10 years). Use bullet points to note
-        your achievements, if possible - use numbers/facts (Achieved X, measured
-        by Y, by doing Z).
+        A varied education on your resume sums up the value that your learnings
+        and background will bring to job.
       </Typography>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
         <Grid item xs={12} md={6}>
@@ -35,7 +35,7 @@ export default function EmploymentHistory() {
             sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
-            Job title
+            School
           </Typography>
           <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
@@ -44,7 +44,7 @@ export default function EmploymentHistory() {
             sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
-            Company Name
+            Degree
           </Typography>
           <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
@@ -53,7 +53,7 @@ export default function EmploymentHistory() {
             sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
-            Employment priod
+            Start & End Date
           </Typography>
           <Grid container spcaing={10}>
             <Grid item xs={6} md={6}>
@@ -113,7 +113,7 @@ export default function EmploymentHistory() {
         </Grid>
       </Grid>
       <Button sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}>
-        + Add Employment History
+        + Add Education
       </Button>
     </Box>
   );

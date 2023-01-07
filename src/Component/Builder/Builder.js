@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import EmploymentHistory from "./EmploymentHistory";
-import PersonalDetails from "./PersonalDetails";
-import Progressbar from "./Progressbar";
+import Education from "./Component/Education";
+import EmploymentHistory from "./Component/EmploymentHistory";
+import PersonalDetails from "./Component/PersonalDetails";
+import Progressbar from "./Component/Progressbar";
+import WebsiteSocialLinks from "./Component/WebsiteSocialLinks";
 
 export default function Builder() {
   return (
@@ -21,6 +23,8 @@ export default function Builder() {
       <Progressbar />
       <PersonalDetails />
       <EmploymentHistory />
+      <Education />
+      <WebsiteSocialLinks />
     </Box>
   );
 }

@@ -1,8 +1,8 @@
-import { Box, Grid, TextField, Typography } from "@mui/material";
+import { Box, Grid, TextField, Tooltip, Typography } from "@mui/material";
 import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-
+import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 export default function PersonalDetails() {
   const [otherDetails, setOtherDetails] = useState(false);
   const handleMoreInfo = () => {
@@ -16,6 +16,7 @@ export default function PersonalDetails() {
         justifyCOntent: "flex-start",
         width: "100%",
         mt: 3,
+        mb: 3,
       }}
     >
       <Typography
@@ -26,13 +27,28 @@ export default function PersonalDetails() {
       </Typography>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
         <Grid item xs={12} md={6}>
-          <Typography
-            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-            color="text.400"
-          >
-            Wanted Job Title
-          </Typography>
-          <TextField variant="filled" size="small" fullWidth placeholder="e.g UI/UX Designer" hiddenLabel/>
+          <Box sx={{ display: "flex", alignItems: "baseline" }}>
+            <Typography
+              sx={{ fontSize: "14px", mb: 1, fontWeight: 400, mr: 1 }}
+              color="text.400"
+            >
+              Wanted Job Title
+            </Typography>
+            <Tooltip
+              title="Add a title like ‘Senior Marketer’ or ‘Sales Executive’ that quickly describes your overall experience or the type of role you're applying to"
+              placement="top"
+              arrow
+            >
+              <HelpOutlineRoundedIcon sx={{ fontSize: "16px" ,color:"#1a91f0"}} />
+            </Tooltip>
+          </Box>
+          <TextField
+            variant="filled"
+            size="small"
+            fullWidth
+            placeholder="e.g UI/UX Designer"
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}></Grid>
         <Grid item xs={12} md={6}>
@@ -42,7 +58,7 @@ export default function PersonalDetails() {
           >
             First Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -51,7 +67,7 @@ export default function PersonalDetails() {
           >
             Last Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -60,7 +76,7 @@ export default function PersonalDetails() {
           >
             Email
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -69,7 +85,7 @@ export default function PersonalDetails() {
           >
             Phone
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -78,7 +94,7 @@ export default function PersonalDetails() {
           >
             Country
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -87,7 +103,7 @@ export default function PersonalDetails() {
           >
             City
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         {otherDetails && (
           <>
@@ -98,7 +114,7 @@ export default function PersonalDetails() {
               >
                 Address
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+              <TextField variant="filled" size="small" fullWidth hiddenLabel />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -107,7 +123,7 @@ export default function PersonalDetails() {
               >
                 Postal Code
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+              <TextField variant="filled" size="small" fullWidth hiddenLabel />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -116,7 +132,7 @@ export default function PersonalDetails() {
               >
                 Nationality
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+              <TextField variant="filled" size="small" fullWidth hiddenLabel />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -125,7 +141,7 @@ export default function PersonalDetails() {
               >
                 Date Of Birth
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
+              <TextField variant="filled" size="small" fullWidth hiddenLabel />
             </Grid>
           </>
         )}
