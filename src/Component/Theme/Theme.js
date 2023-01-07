@@ -66,26 +66,18 @@ export default function Theme({ children }) {
       },
       MuiFilledInput: {
         styleOverrides: {
-          root: {
-            backgroundColor: "red",
-            '& .MuiOutlinedInput-notchedOutline': {
-              backgroundColor: "red",
-            },
-          },
           underline: {
             backgroundColor: "#eff2f9",
+            padding:"8px 12px 8px 12px",
             "&:hover": {
               backgroundColor: "#eff2f9",
               borderBottomColor: "#eff2f9",
-            },
-            "&:hover fieldset": {
-              borderColor: "grey",
             },
             "&.Mui-focused": {
               backgroundColor: "#eff2f9",
               borderBottomColor: "#eff2f9",
             },
-            "&:before": {
+            "&&&:before": {
               borderBottomColor: "#eff2f9",
             },
             "&:after": {

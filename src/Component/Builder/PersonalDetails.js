@@ -32,7 +32,7 @@ export default function PersonalDetails() {
           >
             Wanted Job Title
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth placeholder="e.g UI/UX Designer" hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}></Grid>
         <Grid item xs={12} md={6}>
@@ -42,7 +42,7 @@ export default function PersonalDetails() {
           >
             First Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -51,7 +51,7 @@ export default function PersonalDetails() {
           >
             Last Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -60,7 +60,7 @@ export default function PersonalDetails() {
           >
             Email
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -69,7 +69,7 @@ export default function PersonalDetails() {
           >
             Phone
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -78,7 +78,7 @@ export default function PersonalDetails() {
           >
             Country
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -87,7 +87,7 @@ export default function PersonalDetails() {
           >
             City
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel/>
         </Grid>
         {otherDetails && (
           <>
@@ -98,7 +98,7 @@ export default function PersonalDetails() {
               >
                 Address
               </Typography>
-              <TextField variant="filled" size="small" fullWidth />
+              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -107,7 +107,7 @@ export default function PersonalDetails() {
               >
                 Postal Code
               </Typography>
-              <TextField variant="filled" size="small" fullWidth />
+              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -116,7 +116,7 @@ export default function PersonalDetails() {
               >
                 Nationality
               </Typography>
-              <TextField variant="filled" size="small" fullWidth />
+              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -125,7 +125,7 @@ export default function PersonalDetails() {
               >
                 Date Of Birth
               </Typography>
-              <TextField variant="filled" size="small" fullWidth />
+              <TextField variant="filled" size="small" fullWidth hiddenLabel/>
             </Grid>
           </>
         )}

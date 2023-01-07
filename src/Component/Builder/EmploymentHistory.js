@@ -37,7 +37,7 @@ export default function EmploymentHistory() {
           >
             Job title
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -46,7 +46,7 @@ export default function EmploymentHistory() {
           >
             Company Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -61,7 +61,8 @@ export default function EmploymentHistory() {
                 <DatePicker
                   views={["year", "month"]}
                   value={value}
-                  disableOpenPicker
+                  minDate={dayjs("2012-03-01")}
+                  maxDate={dayjs("2023-06-01")}
                   onChange={(newValue) => {
                     setValue(newValue);
                   }}
@@ -71,6 +72,7 @@ export default function EmploymentHistory() {
                       helperText={null}
                       variant="filled"
                       size="small"
+                      hiddenLabel
                     />
                   )}
                 />
@@ -81,7 +83,8 @@ export default function EmploymentHistory() {
                 <DatePicker
                   views={["year", "month"]}
                   value={value}
-                  disableOpenPicker
+                  minDate={dayjs("2012-03-01")}
+                  maxDate={dayjs("2023-06-01")}
                   onChange={(newValue) => {
                     setValue(newValue);
                   }}
@@ -91,6 +94,7 @@ export default function EmploymentHistory() {
                       helperText={null}
                       variant="filled"
                       size="small"
+                      hiddenLabel
                     />
                   )}
                 />
@@ -105,7 +109,7 @@ export default function EmploymentHistory() {
           >
             Location
           </Typography>
-          <TextField variant="filled" size="small" fullWidth />
+          <TextField variant="filled" size="small" fullWidth hiddenLabel />
         </Grid>
       </Grid>
       <Button sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}>
