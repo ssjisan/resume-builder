@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import EmploymentHistory from "./EmploymentHistory";
 import PersonalDetails from "./PersonalDetails";
 import Progressbar from "./Progressbar";
 
@@ -19,6 +20,7 @@ export default function Builder() {
       </Typography>
       <Progressbar />
       <PersonalDetails />
+      <EmploymentHistory />
     </Box>
   );
 }

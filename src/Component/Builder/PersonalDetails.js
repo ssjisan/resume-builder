@@ -2,6 +2,7 @@ import { Box, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 export default function PersonalDetails() {
   const [otherDetails, setOtherDetails] = useState(false);
   const handleMoreInfo = () => {
@@ -26,7 +27,7 @@ export default function PersonalDetails() {
       <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             Wanted Job Title
@@ -36,7 +37,7 @@ export default function PersonalDetails() {
         <Grid item xs={12} md={6}></Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             First Name
@@ -45,7 +46,7 @@ export default function PersonalDetails() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             Last Name
@@ -54,7 +55,7 @@ export default function PersonalDetails() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             Email
@@ -63,7 +64,7 @@ export default function PersonalDetails() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             Phone
@@ -72,7 +73,7 @@ export default function PersonalDetails() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             Country
@@ -81,7 +82,7 @@ export default function PersonalDetails() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
-            sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
             color="text.400"
           >
             City
@@ -92,7 +93,7 @@ export default function PersonalDetails() {
           <>
             <Grid item xs={12} md={6}>
               <Typography
-                sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+                sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
                 color="text.400"
               >
                 Address
@@ -101,7 +102,7 @@ export default function PersonalDetails() {
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
-                sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+                sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
                 color="text.400"
               >
                 Postal Code
@@ -110,7 +111,7 @@ export default function PersonalDetails() {
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
-                sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+                sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
                 color="text.400"
               >
                 Nationality
@@ -119,7 +120,7 @@ export default function PersonalDetails() {
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
-                sx={{ fontSize: "16px", mb: 1, fontWeight: 400 }}
+                sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
                 color="text.400"
               >
                 Date Of Birth
@@ -142,7 +143,7 @@ export default function PersonalDetails() {
             >
               <Typography
                 color="primary"
-                sx={{ fontSize: "16px", fontWeight: 600 }}
+                sx={{ fontSize: "14px", fontWeight: 600 }}
               >
                 Hide additional details
               </Typography>
@@ -161,7 +162,7 @@ export default function PersonalDetails() {
             >
               <Typography
                 color="primary"
-                sx={{ fontSize: "16px", fontWeight: 600 }}
+                sx={{ fontSize: "14px", fontWeight: 600 }}
               >
                 Edit additional details
               </Typography>
