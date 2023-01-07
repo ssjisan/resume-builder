@@ -14,7 +14,7 @@ export default function Theme({ children }) {
         700: "#686868",
         600: "#757575",
         500: "#1E2532",
-        400: "#BDBDBD",
+        400: "#828BA2",
         300: "#E0E0E0",
         200: "#EEEEEE",
         100: "#F5F5F5",
@@ -60,6 +60,30 @@ export default function Theme({ children }) {
             "&:hover": {
               boxShadow: "none",
               backgroundColor: "#DCE1E5",
+            },
+          },
+        },
+      },
+      MuiFilledInput: {
+        styleOverrides: {
+          underline: {
+            backgroundColor: "#eff2f9",
+            "&:hover": {
+              backgroundColor: "#eff2f9",
+              borderBottomColor: "#eff2f9",
+            },
+            '&:hover fieldset': {
+              borderColor: 'grey',
+            },
+            "&.Mui-focused":{
+              backgroundColor: "#eff2f9",
+              borderBottomColor: "#eff2f9",
+            },
+            "&:before": {
+              borderBottomColor: "#eff2f9",
+            },
+            "&:after":{
+              borderBottom:"2px solid #5471fd"
             },
           },
         },
