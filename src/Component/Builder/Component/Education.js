@@ -20,7 +20,7 @@ export default function Education() {
       }}
     >
       <Typography
-        sx={{ fontSize: "24px", fontWeight: 600, mb: 2 }}
+        sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
         color="text.500"
       >
         Education
@@ -29,89 +29,91 @@ export default function Education() {
         A varied education on your resume sums up the value that your learnings
         and background will bring to job.
       </Typography>
-      <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
-        <Grid item xs={12} md={6}>
-          <Typography
-            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-            color="text.400"
-          >
-            School
-          </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography
-            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-            color="text.400"
-          >
-            Degree
-          </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography
-            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-            color="text.400"
-          >
-            Start & End Date
-          </Typography>
-          <Grid container spcaing={10}>
-            <Grid item xs={6} md={6}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  views={["year", "month"]}
-                  value={value}
-                  minDate={dayjs("2012-03-01")}
-                  maxDate={dayjs("2023-06-01")}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      helperText={null}
-                      variant="filled"
-                      size="small"
-                      hiddenLabel
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  views={["year", "month"]}
-                  value={value}
-                  minDate={dayjs("2012-03-01")}
-                  maxDate={dayjs("2023-06-01")}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      helperText={null}
-                      variant="filled"
-                      size="small"
-                      hiddenLabel
-                    />
-                  )}
-                />
-              </LocalizationProvider>
+      <Box sx={{ p: 2, border: "1px solid #e7eaf4" }}>
+        <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
+          <Grid item xs={12} md={6}>
+            <Typography
+              sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+              color="text.400"
+            >
+              School
+            </Typography>
+            <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography
+              sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+              color="text.400"
+            >
+              Degree
+            </Typography>
+            <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography
+              sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+              color="text.400"
+            >
+              Start & End Date
+            </Typography>
+            <Grid container spcaing={10}>
+              <Grid item xs={6} md={6}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    views={["year", "month"]}
+                    value={value}
+                    minDate={dayjs("2012-03-01")}
+                    maxDate={dayjs("2023-06-01")}
+                    onChange={(newValue) => {
+                      setValue(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        helperText={null}
+                        variant="filled"
+                        size="small"
+                        hiddenLabel
+                      />
+                    )}
+                  />
+                </LocalizationProvider>
+              </Grid>
+              <Grid item xs={6} md={6}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    views={["year", "month"]}
+                    value={value}
+                    minDate={dayjs("2012-03-01")}
+                    maxDate={dayjs("2023-06-01")}
+                    onChange={(newValue) => {
+                      setValue(newValue);
+                    }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        helperText={null}
+                        variant="filled"
+                        size="small"
+                        hiddenLabel
+                      />
+                    )}
+                  />
+                </LocalizationProvider>
+              </Grid>
             </Grid>
           </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography
+              sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+              color="text.400"
+            >
+              Location
+            </Typography>
+            <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography
-            sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-            color="text.400"
-          >
-            Location
-          </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
-        </Grid>
-      </Grid>
+      </Box>
       <Button sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}>
         + Add Education
       </Button>
