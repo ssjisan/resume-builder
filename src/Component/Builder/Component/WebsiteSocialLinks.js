@@ -15,15 +15,7 @@ export default function WebsiteSocialLinks() {
   useEffect(() => {
     setWidth(ref.current ? ref.current.offsetWidth : 0);
   }, []);
-  const [isHovering, setIsHovering] = useState(false);
 
-  const handleMouseOver = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovering(false);
-  };
   const [inputList, setInputList] = useState([{ Name: "", Link: "" }]);
   const handleRemove = (index) => {
     const list = [...inputList];
@@ -39,7 +31,6 @@ export default function WebsiteSocialLinks() {
     list[index][name] = value;
     setInputList(list);
   };
-  console.log(inputList);
   return (
     <Box
       sx={{
@@ -73,9 +64,8 @@ export default function WebsiteSocialLinks() {
               mb: 2,
             }}
             ref={ref}
-            onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
           >
-            {isHovering && <Box
+            <Box
               sx={{
                 position: "absolute",
                 left: `calc(45px + ${width}px)`,
@@ -84,7 +74,7 @@ export default function WebsiteSocialLinks() {
               <IconButton size="large" onClick={() => handleRemove(i)}>
                 <DeleteOutlineRoundedIcon color="text.100" />
               </IconButton>
-            </Box>}
+            </Box>
             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
               <Grid item xs={12} md={6}>
                 <Typography

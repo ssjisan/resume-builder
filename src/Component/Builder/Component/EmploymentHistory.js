@@ -1,15 +1,9 @@
-import {
-  Box,
-  Button,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { MobileDatePicker } from "@mui/x-date-pickers";
 export default function EmploymentHistory() {
   const [value, setValue] = useState();
   return (
@@ -34,7 +28,7 @@ export default function EmploymentHistory() {
         your achievements, if possible - use numbers/facts (Achieved X, measured
         by Y, by doing Z).
       </Typography>
-      <Box sx={{ p: 2, border: "1px solid #e7eaf4", borderRadius:"12px" }}>
+      <Box sx={{ p: 2, border: "1px solid #e7eaf4", borderRadius: "12px" }}>
         <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
           <Grid item xs={12} md={6}>
             <Typography
@@ -61,13 +55,14 @@ export default function EmploymentHistory() {
             >
               Start & End Date
             </Typography>
-            <Grid container spcaing={10}>
-              <Grid item xs={6} md={6}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} lg={6}>
+                {" "}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
+                  <MobileDatePicker
                     views={["year", "month"]}
                     value={value}
-                    minDate={dayjs("2012-03-01")}
+                    minDate={dayjs("2012-01-01")}
                     maxDate={dayjs("2023-06-01")}
                     onChange={(newValue) => {
                       setValue(newValue);
@@ -75,21 +70,22 @@ export default function EmploymentHistory() {
                     renderInput={(params) => (
                       <TextField
                         {...params}
-                        helperText={null}
                         variant="filled"
                         size="small"
                         hiddenLabel
+                        fullWidth
                       />
                     )}
                   />
                 </LocalizationProvider>
               </Grid>
-              <Grid item xs={6} md={6}>
+              <Grid item xs={12} lg={6}>
+                {" "}
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker
+                  <MobileDatePicker
                     views={["year", "month"]}
                     value={value}
-                    minDate={dayjs("2012-03-01")}
+                    minDate={dayjs("2012-01-01")}
                     maxDate={dayjs("2023-06-01")}
                     onChange={(newValue) => {
                       setValue(newValue);
@@ -97,10 +93,10 @@ export default function EmploymentHistory() {
                     renderInput={(params) => (
                       <TextField
                         {...params}
-                        helperText={null}
                         variant="filled"
                         size="small"
                         hiddenLabel
+                        fullWidth
                       />
                     )}
                   />
