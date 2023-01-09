@@ -77,6 +77,7 @@ export default function WebsiteSocialLinks() {
                   size="small"
                   fullWidth
                   hiddenLabel
+                  name="Name"
                   onChange={(e) => handleInputChange(e, i)}
                 />
               </Grid>
@@ -91,7 +92,7 @@ export default function WebsiteSocialLinks() {
                   variant="filled"
                   size="small"
                   fullWidth
-                  value={data.Link}
+                  name="Link"
                   onChange={(e) => handleInputChange(e, i)}
                   hiddenLabel
                 />
