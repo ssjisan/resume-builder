@@ -6,10 +6,24 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
 export default function WebsiteSocialLinks() {
+  const ref = useRef(null);
+  const [width, setWidth] = useState();
+  useEffect(() => {
+    setWidth(ref.current ? ref.current.offsetWidth : 0);
+  }, []);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
   const [inputList, setInputList] = useState([{ Name: "", Link: "" }]);
   const handleRemove = (index) => {
     const list = [...inputList];
@@ -58,12 +72,19 @@ export default function WebsiteSocialLinks() {
               borderRadius: "12px",
               mb: 2,
             }}
+            ref={ref}
+            onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
           >
-            <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
-              <IconButton size="small" onClick={() => handleRemove(i)}>
+            {isHovering && <Box
+              sx={{
+                position: "absolute",
+                left: `calc(45px + ${width}px)`,
+              }}
+            >
+              <IconButton size="large" onClick={() => handleRemove(i)}>
                 <DeleteOutlineRoundedIcon color="text.100" />
               </IconButton>
-            </Box>
+            </Box>}
             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
               <Grid item xs={12} md={6}>
                 <Typography
