@@ -4,33 +4,18 @@ import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MobileDatePicker } from "@mui/x-date-pickers";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 export default function EmploymentHistory() {
   const [value, setValue] = useState();
-  const [description,setDescription] = useState("")
-  const handleChange = (e,editor)=>{
+  // eslint-disable-next-line
+  const [description, setDescription] = useState("");
+  // eslint-disable-next-line
+  const handleChange = (e, editor) => {
     const data = editor.getData();
-    setDescription(data)
-  }
-  console.log(description);
-  ClassicEditor.defaultConfig = {
-    toolbar: {
-      items: [
-        'bold',
-        'italic',
-        '|',
-        'bulletedList',
-        'numberedList',
-        '|',
-        'Underline',
-        '|',
-        'undo',
-        'redo'
-      ]
-    },
-    language: 'en'
+    setDescription(data);
   };
+  console.log(description);
+
   return (
     <Box
       sx={{
@@ -138,16 +123,7 @@ export default function EmploymentHistory() {
             </Typography>
             <TextField variant="filled" size="small" fullWidth hiddenLabel />
           </Grid>
-          <Grid item lg={12}>
-          <CKEditor
-                    editor={ ClassicEditor }
-                    data={description}
-                    onChange={handleChange}
-                    config={{
-                    
-                  }}
-                />
-          </Grid>
+          <Grid item lg={12}></Grid>
         </Grid>
       </Box>
       <Button sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}>
