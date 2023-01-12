@@ -6,6 +6,9 @@ export default function Theme({ children }) {
     typography: {
       fontFamily: "Open Sans",
     },
+    shape: {
+      
+    },
     palette: {
       text: {
         1000: "#212121",

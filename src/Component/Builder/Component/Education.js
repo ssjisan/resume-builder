@@ -114,7 +114,15 @@ export default function Education() {
           </Grid>
         </Grid>
       </Box>
-      <Button sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}>
+      <Button
+        sx={{
+          textTransform: "none",
+          fontWeight: 600,
+          mt: 2,
+          display: "flex",
+          justifyContent: "flex-start",
+        }}
+      >
         + Add Education
       </Button>
     </Box>

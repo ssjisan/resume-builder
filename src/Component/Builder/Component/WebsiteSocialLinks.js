@@ -1,4 +1,7 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Button,
   Grid,
@@ -6,30 +9,29 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function WebsiteSocialLinks() {
-  const ref = useRef(null);
-  const [width, setWidth] = useState();
-  useEffect(() => {
-    setWidth(ref.current ? ref.current.offsetWidth : 0);
-  }, []);
-
-  const [inputList, setInputList] = useState([{ Name: "", Link: "" }]);
-  const handleRemove = (index) => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setInputList(list);
+  const [socialMedia, setSocialMedia] = useState([]);
+  const [expanded, setExpanded] = useState();
+  const handleAccordion = (i) => (event,newExpanded) => {
+    setExpanded(newExpanded ? i : false);
   };
   const handleAdd = () => {
-    setInputList([...inputList, { Name: "", Link: "" }]);
+    setSocialMedia([...socialMedia, { Name: "", Link: "" }]);
+  };
+  const handleRemove = (index) => {
+    const list = [...socialMedia];
+    list.splice(index, 1);
+    setSocialMedia(list);
   };
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
-    const list = [...inputList];
+    const list = [...socialMedia];
     list[index][name] = value;
-    setInputList(list);
+    setSocialMedia(list);
   };
   return (
     <Box
@@ -53,67 +55,87 @@ export default function WebsiteSocialLinks() {
         It will be a link to your portfolio, LinkedIn profile, or personal
         website
       </Typography>
-
-      {inputList.map((data, i) => {
+      {socialMedia.map((data, i) => {
         return (
-          <Box
+          <Accordion
             sx={{
-              p: 2,
               border: "1px solid #e7eaf4",
-              borderRadius: "12px",
-              mb: 2,
+              borderRadius: 2,
+              boxShadow: "none",
+              mb:2
             }}
-            ref={ref}
+            expanded={expanded === i} onChange={handleAccordion(i)}
           >
-            <Box
-              sx={{
-                position: "absolute",
-                left: `calc(45px + ${width}px)`,
-              }}
-            >
-              <IconButton size="large" onClick={() => handleRemove(i)}>
-                <DeleteOutlineRoundedIcon color="text.100" />
-              </IconButton>
-            </Box>
-            <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
-              <Grid item xs={12} md={6}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
+                  sx={{ fontSize: "16px", fontWeight: 600 }}
+                  color="text.500"
                 >
-                  Name
+                  {data.Name ? data.Name : "Not Specified"}
                 </Typography>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  fullWidth
-                  hiddenLabel
-                  name="Name"
-                  onChange={(e) => handleInputChange(e, i)}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top:0,
+                    left: "100%",
+                  }}
                 >
-                  Link
-                </Typography>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  fullWidth
-                  name="Link"
-                  onChange={(e) => handleInputChange(e, i)}
-                  hiddenLabel
-                />
-              </Grid>
-            </Grid>
-          </Box>
+                  <IconButton size="large" onClick={() => handleRemove(i)}>
+                    <DeleteOutlineRoundedIcon color="text.100" />
+                  </IconButton>
+                </Box>
+              </Box>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box>
+                <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
+                  <Grid item xs={12} md={6}>
+                    <Typography
+                      sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+                      color="text.400"
+                    >
+                      Name
+                    </Typography>
+                    <TextField
+                      variant="filled"
+                      size="small"
+                      fullWidth
+                      hiddenLabel
+                      name="Name"
+                      onChange={(e) => handleInputChange(e, i)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Typography
+                      sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+                      color="text.400"
+                    >
+                      Link
+                    </Typography>
+                    <TextField
+                      variant="filled"
+                      size="small"
+                      fullWidth
+                      name="Link"
+                      onChange={(e) => handleInputChange(e, i)}
+                      hiddenLabel
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </AccordionDetails>
+          </Accordion>
         );
       })}
       <Button
-        sx={{ textTransform: "none", fontWeight: 600, mt: 2 }}
+        sx={{
+          textTransform: "none",
+          fontWeight: 600,
+          mt: 2,
+          display: "flex",
+          justifyContent: "flex-start",
+        }}
         onClick={handleAdd}
       >
         + Add one more

@@ -2,11 +2,11 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 // eslint-disable-next-line
 import Education from "./Component/Education";
+// eslint-disable-next-line
 import EmploymentHistory from "./Component/EmploymentHistory";
 // eslint-disable-next-line
 import PersonalDetails from "./Component/PersonalDetails";
 import Progressbar from "./Component/Progressbar";
-// eslint-disable-next-line
 import WebsiteSocialLinks from "./Component/WebsiteSocialLinks";
 
 export default function Builder() {
@@ -25,9 +25,9 @@ export default function Builder() {
       </Typography>
       <Progressbar />
       {/* <PersonalDetails /> */}
-      <EmploymentHistory />
+      {/* <EmploymentHistory /> */}
       {/* <Education /> */}
-      {/* <WebsiteSocialLinks /> */}
+      <WebsiteSocialLinks />
     </Box>
   );
 }

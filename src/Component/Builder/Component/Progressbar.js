@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function Progressbar() {
   // eslint-disable-next-line
-  const [progress, setProgress] = useState(14);
+  const [progress, setProgress] = useState(0);
   return (
     <Box sx={{ width: "100%", mt: 4, mb: 5 }}>
       <Box
@@ -15,7 +15,7 @@ export default function Progressbar() {
         }}
       >
         <Typography sx={{ fontSize: "14px", fontWeight: 500 }} color="text.400">
-          <span style={{ fontWeight: 700, color: "#FB4458" }}>14%</span> Profile
+          <span style={{ fontWeight: 700, color: "#FB4458" }}>0%</span> Profile
           completeness
         </Typography>
         <Typography sx={{ fontSize: "14px", fontWeight: 500 }} color="text.400">
