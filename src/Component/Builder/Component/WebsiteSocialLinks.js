@@ -14,11 +14,12 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function WebsiteSocialLinks() {
-  const [socialMedia, setSocialMedia] = useState([]);
   const [expanded, setExpanded] = useState();
   const handleAccordion = (i) => (event,newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
+
+  const [socialMedia, setSocialMedia] = useState([]);
   const handleAdd = () => {
     setSocialMedia([...socialMedia, { Name: "", Link: "" }]);
   };
@@ -33,6 +34,8 @@ export default function WebsiteSocialLinks() {
     list[index][name] = value;
     setSocialMedia(list);
   };
+
+  
   return (
     <Box
       sx={{
