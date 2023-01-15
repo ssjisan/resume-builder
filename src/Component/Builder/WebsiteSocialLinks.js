@@ -9,40 +9,22 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React ,{useContext}from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { DataContext } from "../../DataProcessing/DataProcessing";
 
 export default function WebsiteSocialLinks() {
-  const [expanded, setExpanded] = useState();
-  const handleAccordion = (i) => (event, newExpanded) => {
-    setExpanded(newExpanded ? i : false);
-  };
+  const {
+    expanded,
+    socialMedia,
+    handleAccordion,
+    handleAdd,
+    handleRemove,
+    handleInputChange,
+  } = useContext(DataContext);
 
-  const [socialMedia, setSocialMedia] = useState([]);
-  const handleAdd = () => {
-    setSocialMedia([...socialMedia, { Name: "", Link: "" }]);
-  };
-  const handleRemove = (index) => {
-    const list = [...socialMedia];
-    list.splice(index, 1);
-    setSocialMedia(list);
-    localStorage.setItem("social", JSON.stringify(list));
-  };
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...socialMedia];
-    list[index][name] = value;
-    setSocialMedia(list);
-    localStorage.setItem("social", JSON.stringify(socialMedia));
-  };
-  useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem("social"));
-    if (localData) {
-      setSocialMedia(localData);
-    }
-  }, []);
-
+  
   return (
     <Box
       sx={{
@@ -65,7 +47,7 @@ export default function WebsiteSocialLinks() {
         It will be a link to your portfolio, LinkedIn profile, or personal
         website
       </Typography>
-      {socialMedia.map((data, i) => {
+      {socialMedia?.map((data, i) => {
         return (
           <Accordion
             sx={{
@@ -76,6 +58,7 @@ export default function WebsiteSocialLinks() {
             }}
             expanded={expanded === i}
             onChange={handleAccordion(i)}
+            key={i}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
