@@ -9,13 +9,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function WebsiteSocialLinks() {
   const [expanded, setExpanded] = useState();
-  const handleAccordion = (i) => (event,newExpanded) => {
+  const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
 
@@ -27,15 +27,22 @@ export default function WebsiteSocialLinks() {
     const list = [...socialMedia];
     list.splice(index, 1);
     setSocialMedia(list);
+    localStorage.setItem("social", JSON.stringify(list));
   };
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...socialMedia];
     list[index][name] = value;
     setSocialMedia(list);
+    localStorage.setItem("social", JSON.stringify(socialMedia));
   };
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem("social"));
+    if (localData) {
+      setSocialMedia(localData);
+    }
+  }, []);
 
-  
   return (
     <Box
       sx={{
@@ -65,9 +72,10 @@ export default function WebsiteSocialLinks() {
               border: "1px solid #e7eaf4",
               borderRadius: 2,
               boxShadow: "none",
-              mb:2
+              mb: 2,
             }}
-            expanded={expanded === i} onChange={handleAccordion(i)}
+            expanded={expanded === i}
+            onChange={handleAccordion(i)}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -80,7 +88,7 @@ export default function WebsiteSocialLinks() {
                 <Box
                   sx={{
                     position: "absolute",
-                    top:0,
+                    top: 0,
                     left: "100%",
                   }}
                 >
@@ -106,6 +114,7 @@ export default function WebsiteSocialLinks() {
                       fullWidth
                       hiddenLabel
                       name="Name"
+                      value={data.Name}
                       onChange={(e) => handleInputChange(e, i)}
                     />
                   </Grid>
@@ -121,6 +130,7 @@ export default function WebsiteSocialLinks() {
                       size="small"
                       fullWidth
                       name="Link"
+                      value={data.Link}
                       onChange={(e) => handleInputChange(e, i)}
                       hiddenLabel
                     />
