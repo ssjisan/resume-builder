@@ -9,7 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React ,{useContext}from "react";
+import React, { useContext } from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DataContext } from "../../DataProcessing/DataProcessing";
@@ -24,7 +24,6 @@ export default function WebsiteSocialLinks() {
     handleInputChange,
   } = useContext(DataContext);
 
-  
   return (
     <Box
       sx={{
@@ -56,9 +55,9 @@ export default function WebsiteSocialLinks() {
               boxShadow: "none",
               mb: 2,
             }}
+            key={i}
             expanded={expanded === i}
             onChange={handleAccordion(i)}
-            key={i}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>

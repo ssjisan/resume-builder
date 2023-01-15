@@ -6,9 +6,7 @@ export default function Theme({ children }) {
     typography: {
       fontFamily: "Open Sans",
     },
-    shape: {
-      
-    },
+    shape: {},
     palette: {
       text: {
         1000: "#212121",
@@ -71,7 +69,7 @@ export default function Theme({ children }) {
         styleOverrides: {
           underline: {
             backgroundColor: "#eff2f9",
-            padding:" 4px 4px 4px 4px",
+            padding: " 4px 4px 4px 4px",
             "&:hover": {
               backgroundColor: "#eff2f9",
               borderBottomColor: "#eff2f9",
@@ -85,6 +83,19 @@ export default function Theme({ children }) {
             },
             "&:after": {
               borderBottom: "2px solid #5471fd",
+            },
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "transparent",
+            },
+            "&:hover": {
+              backgroundColor: "transparent",
+              borderColor: "#eff2f9",
             },
           },
         },

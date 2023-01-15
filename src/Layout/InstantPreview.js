@@ -20,7 +20,7 @@ export default function InstantPreview() {
     >
       <Box sx={{ width: "585px", p:2}}>
         <Typography sx={{ color: "#fff",mb:2 }}>Instant Preview</Typography>
-        <Box sx={{backgroundColor:"#fff", width:"100%",height:"800px"}}>s</Box>
+        <Box sx={{backgroundColor:"#fff", width:"100%",height:"800px"}}>.</Box>
         <Box
           sx={{
             display: "flex",
