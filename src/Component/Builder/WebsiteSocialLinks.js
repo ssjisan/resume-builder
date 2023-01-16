@@ -22,8 +22,14 @@ export default function WebsiteSocialLinks() {
     handleAdd,
     handleRemove,
     handleInputChange,
+    socialMediaTitle,
+    isEditing,
+    inputRef,
+    handleEdit,
+    handleChange
   } = useContext(DataContext);
 
+  
   return (
     <Box
       sx={{
@@ -35,12 +41,42 @@ export default function WebsiteSocialLinks() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
-        color="text.500"
-      >
-        Website & Social Links
-      </Typography>
+      {isEditing ? (
+        <Box sx={{display:"flex",gap:2}}>
+          <TextField
+            variant="outlined"
+            inputRef={inputRef}
+            value={socialMediaTitle}
+            onChange={handleChange}
+          />
+        </Box>
+      ) : (
+        <Box sx={{display:"flex",gap:2}}>
+          {socialMediaTitle === "" ? (
+            <Box sx={{display:"flex",gap:2}}>
+              <Typography
+                sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
+                color="text.500"
+                
+              >
+                Untitled
+              </Typography>
+              <button onClick={handleEdit}>Edit</button>
+            </Box>
+          ) : (
+            <Box sx={{display:"flex",gap:2}}>
+              <Typography
+                sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
+                color="text.500"
+                onClick={handleEdit}
+              >
+                {socialMediaTitle}
+              </Typography>
+              <button onClick={handleEdit}>Edit</button>
+            </Box>
+          )}
+        </Box>
+      )}
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
         You can add links to websites you want hiring managers to see! Perhaps
         It will be a link to your portfolio, LinkedIn profile, or personal

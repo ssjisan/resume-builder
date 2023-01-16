@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 export const DataContext = createContext();
 
 export default function DataProcessing({ children }) {
@@ -23,12 +23,41 @@ export default function DataProcessing({ children }) {
     setSocialMedia(list);
     localStorage.setItem("social", JSON.stringify(socialMedia));
   };
+  const [socialMediaTitle, setSocialMediaTitle] = useState("");
+  
+  const [isEditing, setIsEditing] = useState(false);
+  const inputRef = useRef(null);
+  
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+  
+  const handleChange = (event) => {
+    const title = event.target.value
+    setSocialMediaTitle(title);
+    localStorage.setItem("socialMediaTitle", JSON.stringify(title));
+  };
   useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem("social"));
-    if (localData) {
-      setSocialMedia(localData);
+    const socialMediaData = JSON.parse(localStorage.getItem("social"));
+    const socialMediaTitle = JSON.parse(localStorage.getItem("socialMediaTitle"));
+    if (socialMediaData) {
+      setSocialMedia(socialMediaData);
+    }
+    if(socialMediaTitle){
+      setSocialMediaTitle(socialMediaTitle);
     }
   }, []);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (inputRef.current && !inputRef.current.contains(event.target)) {
+        setIsEditing(false);
+      }
+    }
+    document.addEventListener("mouseup", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [inputRef]);
   return (
     <DataContext.Provider
       value={{
@@ -38,6 +67,11 @@ export default function DataProcessing({ children }) {
         handleAdd,
         handleRemove,
         handleInputChange,
+        socialMediaTitle,
+        isEditing,
+        inputRef,
+        handleEdit,
+        handleChange,
       }}
     >
       {children}
