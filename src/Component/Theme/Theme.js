@@ -93,9 +93,18 @@ export default function Theme({ children }) {
             "& .MuiOutlinedInput-notchedOutline": {
               borderColor: "transparent",
             },
-            "&:hover": {
+            "&.Mui-focused": {
               backgroundColor: "transparent",
-              borderColor: "#eff2f9",
+              border:"1px solid transparent",
+              fontSize:"24px",
+              fontWeight:700,
+              margin:"0px"
+            },
+            "&&&:before": {
+              borderBottomColor: "transparent",
+            },
+            "&:after": {
+              borderBottom: "transparent",
             },
           },
         },

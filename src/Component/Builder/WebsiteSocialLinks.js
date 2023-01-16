@@ -57,7 +57,6 @@ export default function WebsiteSocialLinks() {
               <Typography
                 sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
                 color="text.500"
-                
               >
                 Untitled
               </Typography>
@@ -68,7 +67,6 @@ export default function WebsiteSocialLinks() {
               <Typography
                 sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
                 color="text.500"
-                onClick={handleEdit}
               >
                 {socialMediaTitle}
               </Typography>
