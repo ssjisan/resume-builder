@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import Progressbar from "../Component/Builder/Progressbar";
 import WebsiteSocialLinks from "../Component/Builder/WebsiteSocialLinks";
-import PersonalDetails from "../Component/Builder/PersonalDetails";
+// import PersonalDetails from "../Component/Builder/PersonalDetails";
 
 export default function Builder() {
   return (
@@ -19,7 +19,7 @@ export default function Builder() {
         Resume
       </Typography>
       <Progressbar />
-      <PersonalDetails />
+      {/* <PersonalDetails /> */}
       {/* <ProfessionalSummary /> */}
       {/* <EmploymentHistory /> */}
       {/* <Education /> */}

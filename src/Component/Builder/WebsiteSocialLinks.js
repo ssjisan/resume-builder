@@ -30,11 +30,23 @@ export default function WebsiteSocialLinks() {
     handleChange,
     handleFocus,
     handleHover,
-    hover,
-    handleHoverOver,
     hoveredTitle,
-    setHover
+    setHover,
   } = useContext(DataContext);
+  const inputBox = {
+    fontSize: "24px",
+    fontWeight: 700,
+    color: "#1E2532",
+    border: "none",
+    padding: "0px",
+    width:"fit",
+    cursor:"pointer",
+    resize: "both",
+
+    "&&&:focus": {
+      backgroundColor: "red",
+    },
+  };
 
   return (
     <Box
@@ -48,23 +60,13 @@ export default function WebsiteSocialLinks() {
       }}
     >
       {isEditing ? (
-        <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+        <Box sx={{ display: "flex", mb: 2, height: "42px"}}>
           <input
             ref={inputRef}
             value={socialMediaTitle}
             onChange={handleChange}
             onFocus={handleFocus}
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "#1E2532",
-              border: "none",
-              height: "38px",
-              ":focus": {
-                outline: "none",
-                borderBottom: "#eff2f9",
-              },
-            }}
+            style={inputBox}
           />
         </Box>
       ) : (
@@ -73,8 +75,7 @@ export default function WebsiteSocialLinks() {
             <Box
               sx={{
                 display: "flex",
-                gap: 2,
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
                 mb: 2,
                 height: "42px",
@@ -92,7 +93,8 @@ export default function WebsiteSocialLinks() {
               <IconButton
                 onClick={handleEdit}
                 sx={{
-            display: hoveredTitle === "Social Media Title" ? "block" : "none",
+                  display:
+                    hoveredTitle === "Social Media Title" ? "block" : "none",
                   width: "40px",
                   height: "40px",
                 }}
@@ -107,7 +109,6 @@ export default function WebsiteSocialLinks() {
             <Box
               sx={{
                 display: "flex",
-                gap: 2,
                 justifyContent: "flex-start",
                 alignItems: "center",
                 mb: 2,
@@ -126,7 +127,8 @@ export default function WebsiteSocialLinks() {
               <IconButton
                 onClick={handleEdit}
                 sx={{
-            display: hoveredTitle === "Social Media Title" ? "block" : "none",
+                  display:
+                    hoveredTitle === "Social Media Title" ? "block" : "none",
                   width: "40px",
                   height: "40px",
                 }}

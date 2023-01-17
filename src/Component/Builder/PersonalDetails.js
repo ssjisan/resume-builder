@@ -15,22 +15,11 @@ import { DataContext } from "../../DataProcessing/DataProcessing";
 
 export default function PersonalDetails() {
   const {
-    expanded,
-    socialMedia,
-    handleAccordion,
-    handleAdd,
-    handleRemove,
-    handleInputChange,
-    socialMediaTitle,
-    isEditing,
-    inputRef,
     handleEdit,
-    handleChange,
-    handleFocus,
+
     handleHover,
-    hover,
+
     hoveredTitle,
-    handleHoverOver,
     setHover,
   } = useContext(DataContext);
   const [otherDetails, setOtherDetails] = useState(false);
@@ -61,10 +50,7 @@ export default function PersonalDetails() {
         onMouseEnter={() => handleHover("Personal Details Title")}
         onMouseLeave={() => setHover(false)}
       >
-        <Typography
-          sx={{ fontSize: "24px", fontWeight: 700 }}
-          color="text.500"
-        >
+        <Typography sx={{ fontSize: "24px", fontWeight: 700 }} color="text.500">
           Personal Details
         </Typography>
         <IconButton
