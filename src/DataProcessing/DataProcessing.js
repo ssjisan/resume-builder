@@ -7,9 +7,10 @@ export default function DataProcessing({ children }) {
   const [socialMediaTitle, setSocialMediaTitle] = useState("");
   const inputRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [hover,setHover] = useState("");
+  const [hoveredTitle, setHoveredTitle] = useState("");
+  const [hover, setHover] = useState(false);
 
-  // For Details Accordion 
+  // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
@@ -43,7 +44,7 @@ export default function DataProcessing({ children }) {
   };
   const handleFocus = (event) => {
     event.target.select();
-  }
+  };
   const handleChange = (event) => {
     const title = event.target.value;
     setSocialMediaTitle(title);
@@ -74,11 +75,12 @@ export default function DataProcessing({ children }) {
   }, [inputRef]);
 
   // For Hover State
-
-  const handleHover = ()=>{
-
+  const handleHover = (clickedName) => {
+    setHoveredTitle(clickedName)
+  };
+  const handleHoverOver=()=>{
+    setHoveredTitle()
   }
-
   return (
     <DataContext.Provider
       value={{
@@ -93,7 +95,13 @@ export default function DataProcessing({ children }) {
         inputRef,
         handleEdit,
         handleChange,
-        setSocialMediaTitle,handleFocus,handleHover
+        setSocialMediaTitle,
+        handleFocus,
+        handleHover,
+        hover,
+        handleHoverOver,
+        hoveredTitle,
+        setHover
       }}
     >
       {children}

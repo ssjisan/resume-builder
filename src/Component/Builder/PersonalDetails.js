@@ -1,9 +1,38 @@
-import { Box, Grid, TextField, Tooltip, Typography } from "@mui/material";
-import React, { useState } from "react";
+import {
+  Box,
+  Grid,
+  IconButton,
+  TextField,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import React, { useState, useContext } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
+import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import { DataContext } from "../../DataProcessing/DataProcessing";
+
 export default function PersonalDetails() {
+  const {
+    expanded,
+    socialMedia,
+    handleAccordion,
+    handleAdd,
+    handleRemove,
+    handleInputChange,
+    socialMediaTitle,
+    isEditing,
+    inputRef,
+    handleEdit,
+    handleChange,
+    handleFocus,
+    handleHover,
+    hover,
+    hoveredTitle,
+    handleHoverOver,
+    setHover,
+  } = useContext(DataContext);
   const [otherDetails, setOtherDetails] = useState(false);
   const handleMoreInfo = () => {
     setOtherDetails(!otherDetails);
@@ -19,12 +48,37 @@ export default function PersonalDetails() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "24px", fontWeight: 600, mb: 2 }}
-        color="text.500"
+      <Box
+        sx={{
+          display: "flex",
+          gap: 2,
+          justifyContent: "flex-start",
+          alignItems: "center",
+          mb: 2,
+          height: "42px",
+          width: "100%",
+        }}
+        onMouseEnter={() => handleHover("Personal Details Title")}
+        onMouseLeave={() => setHover(false)}
       >
-        Personal Details
-      </Typography>
+        <Typography
+          sx={{ fontSize: "24px", fontWeight: 700 }}
+          color="text.500"
+        >
+          Personal Details
+        </Typography>
+        <IconButton
+          onClick={handleEdit}
+          sx={{
+            display:
+              hoveredTitle === "Personal Details Title" ? "block" : "none",
+            width: "40px",
+            height: "40px",
+          }}
+        >
+          <DriveFileRenameOutlineIcon size="small" sx={{ color: "#bec4d5" }} />
+        </IconButton>
+      </Box>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
         <Grid item xs={12} md={6}>
           <Box sx={{ display: "flex", alignItems: "baseline" }}>
@@ -39,7 +93,9 @@ export default function PersonalDetails() {
               placement="top"
               arrow
             >
-              <HelpOutlineRoundedIcon sx={{ fontSize: "16px" ,color:"#1a91f0"}} />
+              <HelpOutlineRoundedIcon
+                sx={{ fontSize: "16px", color: "#1a91f0" }}
+              />
             </Tooltip>
           </Box>
           <TextField

@@ -28,7 +28,12 @@ export default function WebsiteSocialLinks() {
     inputRef,
     handleEdit,
     handleChange,
-    handleFocus,handleHover
+    handleFocus,
+    handleHover,
+    hover,
+    handleHoverOver,
+    hoveredTitle,
+    setHover
   } = useContext(DataContext);
 
   return (
@@ -65,28 +70,71 @@ export default function WebsiteSocialLinks() {
       ) : (
         <Box sx={{ display: "flex", gap: 2 }}>
           {socialMediaTitle === "" ? (
-            <Box sx={{ display: "flex", gap: 2, justifyContent:"center", alignItems:"center", mb: 2}}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                justifyContent: "center",
+                alignItems: "center",
+                mb: 2,
+                height: "42px",
+                width: "100%",
+              }}
+              onMouseEnter={() => handleHover("Social Media Title")}
+              onMouseLeave={() => setHover(false)}
+            >
               <Typography
-                sx={{ fontSize: "24px", fontWeight: 700}}
+                sx={{ fontSize: "24px", fontWeight: 700 }}
                 color="text.500"
-                onMouseEnter={handleHover}
               >
                 Untitled
               </Typography>
-              <IconButton onClick={handleEdit} size="medium">
-                <DriveFileRenameOutlineIcon size="small"/>
+              <IconButton
+                onClick={handleEdit}
+                sx={{
+            display: hoveredTitle === "Social Media Title" ? "block" : "none",
+                  width: "40px",
+                  height: "40px",
+                }}
+              >
+                <DriveFileRenameOutlineIcon
+                  size="small"
+                  sx={{ color: "#bec4d5" }}
+                />
               </IconButton>
             </Box>
           ) : (
-            <Box sx={{ display: "flex", gap: 2, justifyContent:"center", alignItems:"center", mb: 2}}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                mb: 2,
+                height: "42px",
+                width: "100%",
+              }}
+              onMouseEnter={() => handleHover("Social Media Title")}
+              onMouseLeave={() => setHover(false)}
+            >
               <Typography
                 sx={{ fontSize: "24px", fontWeight: 700 }}
                 color="text.500"
               >
                 {socialMediaTitle}
               </Typography>
-              <IconButton onClick={handleEdit} size="medium">
-              <DriveFileRenameOutlineIcon size="small" sx={{color:"#bec4d5"}}/>
+              <IconButton
+                onClick={handleEdit}
+                sx={{
+            display: hoveredTitle === "Social Media Title" ? "block" : "none",
+                  width: "40px",
+                  height: "40px",
+                }}
+              >
+                <DriveFileRenameOutlineIcon
+                  size="small"
+                  sx={{ color: "#bec4d5" }}
+                />
               </IconButton>
             </Box>
           )}
