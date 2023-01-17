@@ -3,6 +3,7 @@ import React from "react";
 import Progressbar from "../Component/Builder/Progressbar";
 import WebsiteSocialLinks from "../Component/Builder/WebsiteSocialLinks";
 // import PersonalDetails from "../Component/Builder/PersonalDetails";
+// import ProfessionalSummary from "../Component/Builder/ProfessionalSummary";
 
 export default function Builder() {
   return (

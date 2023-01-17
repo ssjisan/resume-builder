@@ -14,7 +14,7 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DataContext } from "../../DataProcessing/DataProcessing";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-
+import "./Style/InputField.css";
 export default function WebsiteSocialLinks() {
   const {
     expanded,
@@ -28,26 +28,8 @@ export default function WebsiteSocialLinks() {
     inputRef,
     handleEdit,
     handleChange,
-    handleFocus,
-    handleHover,
-    hoveredTitle,
-    setHover,
+    handleBlur,
   } = useContext(DataContext);
-  const inputBox = {
-    fontSize: "24px",
-    fontWeight: 700,
-    color: "#1E2532",
-    border: "none",
-    padding: "0px",
-    width:"fit",
-    cursor:"pointer",
-    resize: "both",
-
-    "&&&:focus": {
-      backgroundColor: "red",
-    },
-  };
-
   return (
     <Box
       sx={{
@@ -59,89 +41,26 @@ export default function WebsiteSocialLinks() {
         mb: 3,
       }}
     >
-      {isEditing ? (
-        <Box sx={{ display: "flex", mb: 2, height: "42px"}}>
-          <input
-            ref={inputRef}
-            value={socialMediaTitle}
-            onChange={handleChange}
-            onFocus={handleFocus}
-            style={inputBox}
-          />
-        </Box>
-      ) : (
-        <Box sx={{ display: "flex", gap: 2 }}>
-          {socialMediaTitle === "" ? (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                mb: 2,
-                height: "42px",
-                width: "100%",
-              }}
-              onMouseEnter={() => handleHover("Social Media Title")}
-              onMouseLeave={() => setHover(false)}
-            >
-              <Typography
-                sx={{ fontSize: "24px", fontWeight: 700 }}
-                color="text.500"
-              >
-                Untitled
-              </Typography>
-              <IconButton
-                onClick={handleEdit}
-                sx={{
-                  display:
-                    hoveredTitle === "Social Media Title" ? "block" : "none",
-                  width: "40px",
-                  height: "40px",
-                }}
-              >
-                <DriveFileRenameOutlineIcon
-                  size="small"
-                  sx={{ color: "#bec4d5" }}
-                />
-              </IconButton>
-            </Box>
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "flex-start",
-                alignItems: "center",
-                mb: 2,
-                height: "42px",
-                width: "100%",
-              }}
-              onMouseEnter={() => handleHover("Social Media Title")}
-              onMouseLeave={() => setHover(false)}
-            >
-              <Typography
-                sx={{ fontSize: "24px", fontWeight: 700 }}
-                color="text.500"
-              >
-                {socialMediaTitle}
-              </Typography>
-              <IconButton
-                onClick={handleEdit}
-                sx={{
-                  display:
-                    hoveredTitle === "Social Media Title" ? "block" : "none",
-                  width: "40px",
-                  height: "40px",
-                }}
-              >
-                <DriveFileRenameOutlineIcon
-                  size="small"
-                  sx={{ color: "#bec4d5" }}
-                />
-              </IconButton>
-            </Box>
-          )}
-        </Box>
-      )}
+      <Box>
+        <input
+          ref={inputRef}
+          value={socialMediaTitle === "" ? "Untitled" : socialMediaTitle}
+          disabled={!isEditing}
+          onBlur={handleBlur}
+          className="input"
+          type="text"
+          onChange={(e) => handleChange(e)}
+        />
+        <IconButton
+          onClick={handleEdit}
+          sx={{
+            width: "40px",
+            height: "40px",
+          }}
+        >
+          <DriveFileRenameOutlineIcon size="small" sx={{ color: "#bec4d5" }} />
+        </IconButton>
+      </Box>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
         You can add links to websites you want hiring managers to see! Perhaps
         It will be a link to your portfolio, LinkedIn profile, or personal

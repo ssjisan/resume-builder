@@ -7,8 +7,6 @@ export default function DataProcessing({ children }) {
   const [socialMediaTitle, setSocialMediaTitle] = useState("");
   const inputRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [hoveredTitle, setHoveredTitle] = useState("");
-  const [hover, setHover] = useState(false);
 
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
@@ -40,7 +38,9 @@ export default function DataProcessing({ children }) {
   // For Edit Title
   const handleEdit = () => {
     setIsEditing(true);
+    inputRef.current.disabled = false;
     inputRef.current.focus();
+    inputRef.current.select();
   };
   const handleFocus = (event) => {
     event.target.select();
@@ -62,25 +62,11 @@ export default function DataProcessing({ children }) {
       setSocialMediaTitle(socialMediaTitle);
     }
   }, []);
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (inputRef.current && !inputRef.current.contains(event.target)) {
-        setIsEditing(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [inputRef]);
-
-  // For Hover State
-  const handleHover = (clickedName) => {
-    setHoveredTitle(clickedName)
+  const handleBlur = () => {
+    setIsEditing(false);
+    inputRef.current.disabled = true;
   };
-  const handleHoverOver=()=>{
-    setHoveredTitle()
-  }
+
   return (
     <DataContext.Provider
       value={{
@@ -97,11 +83,7 @@ export default function DataProcessing({ children }) {
         handleChange,
         setSocialMediaTitle,
         handleFocus,
-        handleHover,
-        hover,
-        handleHoverOver,
-        hoveredTitle,
-        setHover
+        handleBlur,
       }}
     >
       {children}
