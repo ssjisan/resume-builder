@@ -42,9 +42,6 @@ export default function DataProcessing({ children }) {
     inputRef.current.focus();
     inputRef.current.select();
   };
-  const handleFocus = (event) => {
-    event.target.select();
-  };
   const handleChange = (event) => {
     const title = event.target.value;
     setSocialMediaTitle(title);
@@ -82,7 +79,6 @@ export default function DataProcessing({ children }) {
         handleEdit,
         handleChange,
         setSocialMediaTitle,
-        handleFocus,
         handleBlur,
       }}
     >
