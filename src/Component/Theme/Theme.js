@@ -87,28 +87,6 @@ export default function Theme({ children }) {
           },
         },
       },
-      MuiOutlinedInput: {
-        styleOverrides: {
-          root: {
-            "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "transparent",
-            },
-            "&.Mui-focused": {
-              backgroundColor: "transparent",
-              border:"1px solid transparent",
-              fontSize:"24px",
-              fontWeight:700,
-              margin:"0px"
-            },
-            "&&&:before": {
-              borderBottomColor: "transparent",
-            },
-            "&:after": {
-              borderBottom: "transparent",
-            },
-          },
-        },
-      },
     },
   });
   return <ThemeProvider theme={theme}> {children} </ThemeProvider>;
