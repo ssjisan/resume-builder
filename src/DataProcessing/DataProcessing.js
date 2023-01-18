@@ -7,7 +7,6 @@ export default function DataProcessing({ children }) {
   const [socialMediaTitle, setSocialMediaTitle] = useState("");
   const inputRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
-
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);

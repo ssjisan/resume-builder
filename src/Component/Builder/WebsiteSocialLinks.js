@@ -9,12 +9,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DataContext } from "../../DataProcessing/DataProcessing";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import "./Style/InputField.css";
+
 export default function WebsiteSocialLinks() {
   const {
     expanded,
@@ -30,6 +31,8 @@ export default function WebsiteSocialLinks() {
     handleChange,
     handleBlur,
   } = useContext(DataContext);
+  
+  
   return (
     <Box
       sx={{
@@ -41,7 +44,16 @@ export default function WebsiteSocialLinks() {
         mb: 3,
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          mb: 2,
+          height: "40px",
+        }}
+        className="input-container"
+      >
         <input
           ref={inputRef}
           value={socialMediaTitle === "" ? "Untitled" : socialMediaTitle}
@@ -56,7 +68,9 @@ export default function WebsiteSocialLinks() {
           sx={{
             width: "40px",
             height: "40px",
+            display: "none",
           }}
+          className="edit-button"
         >
           <DriveFileRenameOutlineIcon size="small" sx={{ color: "#bec4d5" }} />
         </IconButton>
