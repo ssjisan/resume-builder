@@ -17,16 +17,16 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
-export default function InternShip() {
-  const [jobTitle, setJobTitle] = useState("");
-  const [companyName, setCompanyName] = useState("");
+export default function ExtraCurricularActivities() {
+  const [functionName, setFunctionName] = useState("");
+  const [employer, setEmployer] = useState("");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const handleJobTitle = (e) => {
-    setJobTitle(e.target.value);
+  const handleFunctionName = (e) => {
+    setFunctionName(e.target.value);
   };
-  const handleCompanyName=(e)=>{
-    setCompanyName(e.target.value)
+  const handleEmployer=(e)=>{
+    setEmployer(e.target.value)
   }
   return (
     <Box
@@ -40,7 +40,7 @@ export default function InternShip() {
       }}
     >
       <Typography sx={{mb:2, fontSize: "20px", fontWeight: 700 }} color="text.500">
-      Internships
+      Extra Curricular Activities
       </Typography>
       <Accordion
         sx={{
@@ -56,7 +56,7 @@ export default function InternShip() {
         <AccordionSummary expandIcon={<ExpandMoreIcon />} className="accordion-summary">
           <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {companyName === "" && jobTitle === "" && (
+            {employer === "" && functionName === "" && (
               <Typography
                 sx={{ fontSize: "14px", fontWeight: 600 }}
                 color="text.500"
@@ -65,30 +65,30 @@ export default function InternShip() {
                 Not Specified
               </Typography>
             )}
-            {companyName === "" && jobTitle !== "" && (
+            {employer === "" && functionName !== "" && (
               <Typography
                 sx={{ fontSize: "14px", fontWeight: 600 }}
                 color="text.500"
                 className="accordion-title"
               >
-                {jobTitle}
+                {functionName}
               </Typography>
             )}
-            {companyName !== "" && jobTitle === "" && (
+            {employer !== "" && functionName === "" && (
               <Typography
                 sx={{ fontSize: "14px", fontWeight: 600 }}
                 color="text.500"
                 className="accordion-title"
               >
-                {companyName}
+                {employer}
               </Typography>
             )}
-            {companyName !== "" && jobTitle !== "" && (
+            {employer !== "" && functionName !== "" && (
               <Typography
                 sx={{ fontSize: "14px", fontWeight: 600 }}
                 color="text.500"
               >
-                {jobTitle} at {companyName}
+                {functionName} at {employer}
               </Typography>
             )}
             <Box
@@ -136,10 +136,10 @@ export default function InternShip() {
                   variant="filled"
                   size="small"
                   name="Job Title"
-                  value={jobTitle}
+                  value={functionName}
                   fullWidth
                   hiddenLabel
-                  onChange={handleJobTitle}
+                  onChange={handleFunctionName}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
@@ -153,10 +153,10 @@ export default function InternShip() {
                   variant="filled"
                   size="small"
                   name="Company Name"
-                  value={companyName}
+                  value={employer}
                   fullWidth
                   hiddenLabel
-                  onChange={handleCompanyName}
+                  onChange={handleEmployer}
                 />
               </Grid>
               <Grid item xs={12} md={6}>
@@ -244,7 +244,7 @@ export default function InternShip() {
           color: "#1A91F0",
         }}
       >
-        + Add one more internship
+        + Add one more extra curricular activity
       </Button>
     </Box>
   );
