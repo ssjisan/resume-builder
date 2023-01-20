@@ -1,16 +1,23 @@
-.accordion-remove-button{
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.accordion-remove-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.remove-button{
-    color: transparent;
+.accordion-summary:hover .accordion-title {
+    color: #f04c1a;
+  }
+  .accordion-summary:hover .remove-button {
+      color: #9fa6bb;
+    }
+    .remove-button {
+  color: transparent;
 }
-.accordion-summary:hover .remove-button{
-    color: #9fa6bb;
+.accordion-remove-button:hover .remove-button {
+    color: #1a91f0;
 }
-.accordion-remove-button:hover .remove-button{
-    color: #1A91F0;
+
+.accordion-summary:hover .accordion-title {
+  color: #1a91f0 !important;
 }

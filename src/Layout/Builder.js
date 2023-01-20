@@ -6,6 +6,8 @@ import PersonalDetails from "../Component/Builder/PersonalDetails";
 import ProfessionalSummary from "../Component/Builder/ProfessionalSummary";
 import EmploymentHistory from "../Component/Builder/EmploymentHistory";
 import Education from "../Component/Builder/Education";
+import Languages from "../Component/Builder/Languages";
+import Courses from "../Component/Builder/Courses";
 
 export default function Builder() {
   return (
@@ -27,6 +29,8 @@ export default function Builder() {
       <EmploymentHistory />
       <Education />
       <WebsiteSocialLinks />
+      <Languages />
+      <Courses />
     </Box>
   );
 }
