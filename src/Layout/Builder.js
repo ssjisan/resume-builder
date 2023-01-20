@@ -11,6 +11,7 @@ import Courses from "../Component/Builder/Courses";
 import InternShip from "../Component/Builder/InternShip";
 import ExtraCurricularActivities from "../Component/Builder/ExtraCurricularActivities";
 import Hobbies from "../Component/Builder/Hobbies";
+import References from "../Component/Builder/References";
 
 export default function Builder() {
   return (
@@ -37,6 +38,7 @@ export default function Builder() {
       <InternShip />
       <ExtraCurricularActivities />
       <Hobbies/>
+      <References />
     </Box>
   );
 }

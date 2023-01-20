@@ -1,21 +1,10 @@
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
   Box,
-  Button,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Select,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
 export default function Hobbies() {
