@@ -95,12 +95,11 @@ export default function WebsiteSocialLinks() {
             key={i}
             expanded={expanded === i}
             onChange={handleAccordion(i)}
-            className="accordion-Body"
           >
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} className="accordion-summary">
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography
-                  sx={{ fontSize: "16px", fontWeight: 600 }}
+                  sx={{ fontSize: "14px", fontWeight: 600 }}
                   color="text.500"
                   className="accordion-title"
                 >
@@ -112,11 +111,10 @@ export default function WebsiteSocialLinks() {
                     top: 0,
                     left: "100%",
                   }}
-                  className="accordion-remove"
                 >
-                  <IconButton size="large" onClick={() => handleRemove(i)}>
-                    <DeleteOutlineRoundedIcon color="text.100" />
-                  </IconButton>
+                  <Box size="large" onClick={() => handleRemove(i)} className="accordion-remove-button">
+                    <DeleteOutlineRoundedIcon className="remove-button"/>
+                  </Box>
                 </Box>
               </Box>
             </AccordionSummary>

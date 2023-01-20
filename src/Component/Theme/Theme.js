@@ -69,6 +69,8 @@ export default function Theme({ children }) {
         styleOverrides: {
           underline: {
             backgroundColor: "#eff2f9",
+            fontSize: "16px",
+            color:"#1E2532",
             padding: " 4px 4px 4px 4px",
             "&:hover": {
               backgroundColor: "#eff2f9",

@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Grid,
-  IconButton,
   TextField,
   Typography,
 } from "@mui/material";
@@ -53,12 +52,11 @@ export default function EmploymentHistory() {
             display: "none",
           },
         }}
-        className="accordion-Body"
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} className="accordion-summary">
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Typography
-              sx={{ fontSize: "16px", fontWeight: 600 }}
+              sx={{ fontSize: "14px", fontWeight: 600 }}
               color="text.500"
               className="accordion-title"
             >
@@ -76,11 +74,10 @@ export default function EmploymentHistory() {
                     top: 0,
                     left: "100%",
                   }}
-                  className="accordion-remove"
                 >
-                  <IconButton size="large">
-                    <DeleteOutlineRoundedIcon color="text.100" />
-                  </IconButton>
+                   <Box size="large" className="accordion-remove-button">
+                    <DeleteOutlineRoundedIcon className="remove-button"/>
+                  </Box>
                 </Box>
           </Box>
         </AccordionSummary>

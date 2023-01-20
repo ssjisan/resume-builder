@@ -1,10 +1,16 @@
-.accordion-remove{
-    display: none;
+.accordion-remove-button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.accordion-Body:hover .accordion-title{
+.remove-button{
+    color: transparent;
+}
+.accordion-summary:hover .remove-button{
+    color: #9fa6bb;
+}
+.accordion-remove-button:hover .remove-button{
     color: #1A91F0;
-}
-
-.accordion-Body:hover .accordion-remove{
-    display: block;
 }

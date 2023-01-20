@@ -14,7 +14,7 @@ export default function ProfessionalSummary() {
       }}
     >
       <Typography
-        sx={{ fontSize: "24px", fontWeight: 700}}
+        sx={{ fontSize: "20px", fontWeight: 700}}
         color="text.500"
       >
         Professional Summary
