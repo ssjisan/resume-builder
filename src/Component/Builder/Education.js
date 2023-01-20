@@ -5,16 +5,19 @@ import {
   Box,
   Button,
   Grid,
+  IconButton,
   TextField,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import dayjs from "dayjs";
-
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import "./Style/InputField.css";
+import "./Style/Accordion.css";
 export default function Education() {
   const [institute, setInstitute] = useState("");
   const [degree, setDegree] = useState("");
@@ -37,10 +40,7 @@ export default function Education() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "20px", fontWeight: 700}}
-        color="text.500"
-      >
+      <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
         Education
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
@@ -49,7 +49,16 @@ export default function Education() {
         by Y, by doing Z).
       </Typography>
       <Accordion
-        sx={{ border: "1px solid #e7eaf4", borderRadius: 2, boxShadow: "none" }}
+        sx={{
+          border: "1px solid #e7eaf4",
+          borderRadius: 2,
+          boxShadow: "none",
+          mb: 2,
+          "&:before": {
+            display: "none",
+          },
+        }}
+        className="accordion-Body"
       >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -57,6 +66,7 @@ export default function Education() {
               <Typography
                 sx={{ fontSize: "16px", fontWeight: 600 }}
                 color="text.500"
+                className="accordion-title"
               >
                 Not Specified
               </Typography>
@@ -65,6 +75,7 @@ export default function Education() {
               <Typography
                 sx={{ fontSize: "16px", fontWeight: 600 }}
                 color="text.500"
+                className="accordion-title"
               >
                 {degree}
               </Typography>
@@ -73,6 +84,7 @@ export default function Education() {
               <Typography
                 sx={{ fontSize: "16px", fontWeight: 600 }}
                 color="text.500"
+                className="accordion-title"
               >
                 {institute}
               </Typography>
@@ -85,12 +97,18 @@ export default function Education() {
                 {degree} at {institute}
               </Typography>
             )}
-            <Typography
-              sx={{ fontSize: "14px", fontWeight: 400 }}
-              color="text.400"
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: "100%",
+              }}
+              className="accordion-remove"
             >
-              Jan 01
-            </Typography>
+              <IconButton size="large">
+                <DeleteOutlineRoundedIcon color="text.100" />
+              </IconButton>
+            </Box>
           </Box>
         </AccordionSummary>
         <AccordionDetails>
@@ -212,7 +230,7 @@ export default function Education() {
           mt: 2,
           display: "flex",
           justifyContent: "flex-start",
-          color:"#1A91F0"
+          color: "#1A91F0",
         }}
       >
         + Add one more education

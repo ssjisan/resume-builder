@@ -15,6 +15,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { DataContext } from "../../DataProcessing/DataProcessing";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import "./Style/InputField.css";
+import "./Style/Accordion.css";
 
 export default function WebsiteSocialLinks() {
   const {
@@ -94,12 +95,14 @@ export default function WebsiteSocialLinks() {
             key={i}
             expanded={expanded === i}
             onChange={handleAccordion(i)}
+            className="accordion-Body"
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography
                   sx={{ fontSize: "16px", fontWeight: 600 }}
                   color="text.500"
+                  className="accordion-title"
                 >
                   {data.Name ? data.Name : "Not Specified"}
                 </Typography>
@@ -109,6 +112,7 @@ export default function WebsiteSocialLinks() {
                     top: 0,
                     left: "100%",
                   }}
+                  className="accordion-remove"
                 >
                   <IconButton size="large" onClick={() => handleRemove(i)}>
                     <DeleteOutlineRoundedIcon color="text.100" />

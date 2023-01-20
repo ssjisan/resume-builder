@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Grid,
+  IconButton,
   TextField,
   Typography,
 } from "@mui/material";
@@ -14,7 +15,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
+import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import "./Style/InputField.css";
+import "./Style/Accordion.css";
 export default function EmploymentHistory() {
   const [jobTitle, setJobTitle] = useState("");
   const [startDate, setStartDate] = useState();
@@ -33,10 +36,7 @@ export default function EmploymentHistory() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "20px", fontWeight: 700 }}
-        color="text.500"
-      >
+      <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
         Employment History
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
@@ -44,13 +44,23 @@ export default function EmploymentHistory() {
         and background will bring to job.
       </Typography>
       <Accordion
-        sx={{ border: "1px solid #e7eaf4", borderRadius: 2, boxShadow: "none" }}
+        sx={{
+          border: "1px solid #e7eaf4",
+          borderRadius: 2,
+          boxShadow: "none",
+          mb: 2,
+          "&:before": {
+            display: "none",
+          },
+        }}
+        className="accordion-Body"
       >
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Typography
               sx={{ fontSize: "16px", fontWeight: 600 }}
               color="text.500"
+              className="accordion-title"
             >
               {jobTitle ? jobTitle : "Not Specified"}
             </Typography>
@@ -60,6 +70,18 @@ export default function EmploymentHistory() {
             >
               Jan 01
             </Typography>
+            <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: "100%",
+                  }}
+                  className="accordion-remove"
+                >
+                  <IconButton size="large">
+                    <DeleteOutlineRoundedIcon color="text.100" />
+                  </IconButton>
+                </Box>
           </Box>
         </AccordionSummary>
         <AccordionDetails>

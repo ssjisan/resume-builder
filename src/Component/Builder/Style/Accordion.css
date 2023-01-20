@@ -1,0 +1,10 @@
+.accordion-remove{
+    display: none;
+}
+.accordion-Body:hover .accordion-title{
+    color: #1A91F0;
+}
+
+.accordion-Body:hover .accordion-remove{
+    display: block;
+}
