@@ -8,6 +8,7 @@ import EmploymentHistory from "../Component/Builder/EmploymentHistory";
 import Education from "../Component/Builder/Education";
 import Languages from "../Component/Builder/Languages";
 import Courses from "../Component/Builder/Courses";
+import InternShip from "../Component/Builder/InternShip";
 
 export default function Builder() {
   return (
@@ -31,6 +32,7 @@ export default function Builder() {
       <WebsiteSocialLinks />
       <Languages />
       <Courses />
+      <InternShip />
     </Box>
   );
 }

@@ -17,7 +17,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
-export default function EmploymentHistory() {
+export default function InternShip() {
   const [jobTitle, setJobTitle] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [startDate, setStartDate] = useState();
@@ -39,12 +39,8 @@ export default function EmploymentHistory() {
         mb: 3,
       }}
     >
-      <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
-        Employment History
-      </Typography>
-      <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
-        A varied education on your resume sums up the value that your learnings
-        and background will bring to job.
+      <Typography sx={{mb:2, fontSize: "20px", fontWeight: 700 }} color="text.500">
+      InternShip
       </Typography>
       <Accordion
         sx={{
