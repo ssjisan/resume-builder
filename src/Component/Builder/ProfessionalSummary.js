@@ -2,19 +2,6 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 
 export default function ProfessionalSummary() {
-
-  // useEffect(() => {
-  //   function handleClickOutside(event) {
-  //     if (inputRef.current && !inputRef.current.contains(event.target)) {
-  //       setDisabled(true);
-  //     }
-  //   }
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [inputRef]);
-  
   return (
     <Box
       sx={{
@@ -27,7 +14,7 @@ export default function ProfessionalSummary() {
       }}
     >
       <Typography
-        sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
+        sx={{ fontSize: "24px", fontWeight: 700}}
         color="text.500"
       >
         Professional Summary

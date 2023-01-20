@@ -49,7 +49,6 @@ export default function WebsiteSocialLinks() {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "center",
-          mb: 2,
           height: "40px",
         }}
         className="input-container"
@@ -88,6 +87,9 @@ export default function WebsiteSocialLinks() {
               borderRadius: 2,
               boxShadow: "none",
               mb: 2,
+              '&:before': {
+                display: 'none',
+            }
             }}
             key={i}
             expanded={expanded === i}
@@ -164,10 +166,11 @@ export default function WebsiteSocialLinks() {
           mt: 2,
           display: "flex",
           justifyContent: "flex-start",
+          color: "#1A91F0",
         }}
         onClick={handleAdd}
       >
-        + Add one more
+        + Add one more link
       </Button>
     </Box>
   );

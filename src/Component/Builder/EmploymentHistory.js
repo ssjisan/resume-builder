@@ -16,22 +16,12 @@ import { MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function EmploymentHistory() {
-  
   const [jobTitle, setJobTitle] = useState("");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const handleInputChange = (e) => {
     setJobTitle(e.target.value);
   };
-  // eslint-disable-next-line
-  const [description, setDescription] = useState("");
-  // eslint-disable-next-line
-  const handleChange = (e, editor) => {
-    const data = editor.getData();
-    setDescription(data);
-  };
-  console.log(description);
-
   return (
     <Box
       sx={{
@@ -44,15 +34,14 @@ export default function EmploymentHistory() {
       }}
     >
       <Typography
-        sx={{ fontSize: "24px", fontWeight: 700, mb: 2 }}
+        sx={{ fontSize: "20px", fontWeight: 700 }}
         color="text.500"
       >
         Employment History
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
-        Show your relevant experience (last 10 years). Use bullet points to note
-        your achievements, if possible - use numbers/facts (Achieved X, measured
-        by Y, by doing Z).
+        A varied education on your resume sums up the value that your learnings
+        and background will bring to job.
       </Typography>
       <Accordion
         sx={{ border: "1px solid #e7eaf4", borderRadius: 2, boxShadow: "none" }}
@@ -189,9 +178,10 @@ export default function EmploymentHistory() {
           mt: 2,
           display: "flex",
           justifyContent: "flex-start",
+          color: "#1A91F0",
         }}
       >
-        + Add Employment History
+        + Add one more employment
       </Button>
     </Box>
   );

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Grid,
   IconButton,
   TextField,
@@ -50,7 +51,7 @@ export default function PersonalDetails() {
         onMouseEnter={() => handleHover("Personal Details Title")}
         onMouseLeave={() => setHover(false)}
       >
-        <Typography sx={{ fontSize: "24px", fontWeight: 700 }} color="text.500">
+        <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
           Personal Details
         </Typography>
         <IconButton
@@ -189,43 +190,33 @@ export default function PersonalDetails() {
         )}
         <Grid item md={12}>
           {otherDetails ? (
-            <Box
+            <Button
               sx={{
+                textTransform: "none",
+                fontWeight: 600,
+                mt: 2,
                 display: "flex",
-                flexDirection: "row",
                 justifyContent: "flex-start",
-                alignItems: "center",
-                cursor: "pointer",
+                color: "#1A91F0",
               }}
               onClick={handleMoreInfo}
             >
-              <Typography
-                color="primary"
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-              >
-                Hide additional details
-              </Typography>
-              <KeyboardArrowUpIcon />
-            </Box>
+              Hide additional details <KeyboardArrowUpIcon />
+            </Button>
           ) : (
-            <Box
+            <Button
               sx={{
+                textTransform: "none",
+                fontWeight: 600,
+                mt: 2,
                 display: "flex",
-                flexDirection: "row",
                 justifyContent: "flex-start",
-                alignItems: "center",
-                cursor: "pointer",
+                color: "#1A91F0",
               }}
               onClick={handleMoreInfo}
             >
-              <Typography
-                color="primary"
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-              >
-                Edit additional details
-              </Typography>
-              <KeyboardArrowDownIcon />
-            </Box>
+              Edit additional details <KeyboardArrowDownIcon />
+            </Button>
           )}
         </Grid>
       </Grid>
