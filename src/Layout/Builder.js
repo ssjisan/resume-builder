@@ -16,8 +16,14 @@ import AddSection from "../Component/Builder/AddSection";
 import { DataContext } from "../DataProcessing/DataProcessing";
 
 export default function Builder() {
-  const { openExtraCurricularActivities } =
-    useContext(DataContext);
+  const {
+    openExtraCurricularActivities,
+    openHobbies,
+    openLanguages,
+    openCourses,
+    openReference,
+    openInternship,
+  } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -37,12 +43,12 @@ export default function Builder() {
       <EmploymentHistory />
       <Education />
       <WebsiteSocialLinks />
-      <Languages />
-      <Courses />
-      <InternShip />
+      {openLanguages && <Languages />}
+      {openCourses && <Courses />}
+      {openInternship && <InternShip />}
       {openExtraCurricularActivities && <ExtraCurricularActivities />}
-      <Hobbies />
-      <References />
+      {openHobbies && <Hobbies />}
+      {openReference && <References />}
       <AddSection />
     </Box>
   );

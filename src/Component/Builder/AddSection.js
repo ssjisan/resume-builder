@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
 import LanguageIcon from "../../Assets/Icons/LanguageIcon";
 import ReferenceActive from "../../Assets/Icons/ReferenceActive";
 import CourseActive from "../../Assets/Icons/CourseActive";
@@ -8,8 +8,14 @@ import IntershipActive from "../../Assets/Icons/IntershipActive";
 import { DataContext } from "../../DataProcessing/DataProcessing";
 
 export default function AddSection() {
-  const { handleOpenExtraCurricularActivities } =
-    useContext(DataContext);
+  const {
+    handleOpenExtraCurricularActivities,
+    handleOpenHobbies,
+    handleOpenLanguages,
+    handleOpenCourses,
+    handleOpenInternship,
+    handleOpenReference,
+  } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -41,6 +47,7 @@ export default function AddSection() {
           <Button
             startIcon={<CourseActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenCourses}
           >
             Courses
           </Button>
@@ -49,6 +56,7 @@ export default function AddSection() {
           <Button
             startIcon={<HobbiesActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenHobbies}
           >
             Hobbies
           </Button>
@@ -57,6 +65,7 @@ export default function AddSection() {
           <Button
             startIcon={<IntershipActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenInternship}
           >
             Internships
           </Button>
@@ -65,6 +74,7 @@ export default function AddSection() {
           <Button
             startIcon={<LanguageIcon />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenLanguages}
           >
             Language
           </Button>
@@ -73,6 +83,7 @@ export default function AddSection() {
           <Button
             startIcon={<ReferenceActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenReference}
           >
             References
           </Button>
