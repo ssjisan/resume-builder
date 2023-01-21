@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import Progressbar from "../Component/Builder/Progressbar";
 import WebsiteSocialLinks from "../Component/Builder/WebsiteSocialLinks";
 import PersonalDetails from "../Component/Builder/PersonalDetails";
@@ -13,8 +13,11 @@ import ExtraCurricularActivities from "../Component/Builder/ExtraCurricularActiv
 import Hobbies from "../Component/Builder/Hobbies";
 import References from "../Component/Builder/References";
 import AddSection from "../Component/Builder/AddSection";
+import { DataContext } from "../DataProcessing/DataProcessing";
 
 export default function Builder() {
+  const { openExtraCurricularActivities } =
+    useContext(DataContext);
   return (
     <Box
       sx={{
@@ -37,7 +40,7 @@ export default function Builder() {
       <Languages />
       <Courses />
       <InternShip />
-      <ExtraCurricularActivities />
+      {openExtraCurricularActivities && <ExtraCurricularActivities />}
       <Hobbies />
       <References />
       <AddSection />

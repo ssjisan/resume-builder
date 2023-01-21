@@ -62,7 +62,10 @@ export default function DataProcessing({ children }) {
     setIsEditing(false);
     inputRef.current.disabled = true;
   };
-
+  const [openExtraCurricularActivities, setOpenExtraCurricularActivities]=useState(false);
+  const handleOpenExtraCurricularActivities=()=>{
+    setOpenExtraCurricularActivities(!openExtraCurricularActivities)
+  }
   return (
     <DataContext.Provider
       value={{
@@ -79,6 +82,8 @@ export default function DataProcessing({ children }) {
         handleChange,
         setSocialMediaTitle,
         handleBlur,
+        openExtraCurricularActivities,
+        handleOpenExtraCurricularActivities
       }}
     >
       {children}

@@ -1,12 +1,15 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React ,{useContext} from "react";
 import LanguageIcon from "../../Assets/Icons/LanguageIcon";
 import ReferenceActive from "../../Assets/Icons/ReferenceActive";
 import CourseActive from "../../Assets/Icons/CourseActive";
 import HobbiesActive from "../../Assets/Icons/HobbiesActive";
 import IntershipActive from "../../Assets/Icons/IntershipActive";
+import { DataContext } from "../../DataProcessing/DataProcessing";
 
 export default function AddSection() {
+  const { handleOpenExtraCurricularActivities } =
+    useContext(DataContext);
   return (
     <Box
       sx={{
@@ -29,6 +32,7 @@ export default function AddSection() {
           <Button
             startIcon={<LanguageIcon />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
+            onClick={handleOpenExtraCurricularActivities}
           >
             Extra-curricular Activities
           </Button>
