@@ -1,11 +1,16 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React, { useContext } from "react";
-import LanguageIcon from "../../Assets/Icons/LanguageIcon";
-import ReferenceActive from "../../Assets/Icons/ReferenceActive";
-import CourseActive from "../../Assets/Icons/CourseActive";
-import HobbiesActive from "../../Assets/Icons/HobbiesActive";
-import IntershipActive from "../../Assets/Icons/IntershipActive";
 import { DataContext } from "../../DataProcessing/DataProcessing";
+import LanguageActive from "../../Assets/Icons/LanguageActive";
+import LanguageDisable from "../../Assets/Icons/LanguageDisable";
+import ReferenceActive from "../../Assets/Icons/ReferenceActive";
+import ReferenceDisable from "../../Assets/Icons/ReferenceDisable";
+import CourseActive from "../../Assets/Icons/CourseActive";
+import CourseDisable from "../../Assets/Icons/CourseDisable";
+import HobbiesActive from "../../Assets/Icons/HobbiesActive";
+import HobbiesDisable from "../../Assets/Icons/HobbiesDisable";
+import IntershipActive from "../../Assets/Icons/IntershipActive";
+import IntershipDisable from "../../Assets/Icons/IntershipDisable";
 import ActivitiesActive from "../../Assets/Icons/ActivitiesActive";
 import ActivitiesDisable from "../../Assets/Icons/ActivitiesDisable";
 
@@ -60,7 +65,7 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={<CourseActive />}
+            startIcon={openCourses ? <CourseDisable /> : <CourseActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
             onClick={handleOpenCourses}
             disabled={openCourses && true}
@@ -70,7 +75,7 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={<HobbiesActive />}
+            startIcon={openHobbies ? <HobbiesDisable /> : <HobbiesActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
             onClick={handleOpenHobbies}
             disabled={openHobbies && true}
@@ -80,7 +85,9 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={<IntershipActive />}
+            startIcon={
+              openInternship ? <IntershipDisable /> : <IntershipActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
             onClick={handleOpenInternship}
             disabled={openInternship && true}
@@ -90,7 +97,7 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={<LanguageIcon />}
+            startIcon={openLanguages ? <LanguageDisable /> : <LanguageActive />}
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
             onClick={handleOpenLanguages}
             disabled={openLanguages && true}
@@ -100,7 +107,9 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={<ReferenceActive />}
+            startIcon={
+              openReference ? <ReferenceDisable /> : <ReferenceActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
             onClick={handleOpenReference}
             disabled={openReference && true}
