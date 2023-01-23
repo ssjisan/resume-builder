@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import GridViewIcon from "@mui/icons-material/GridView";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
 export default function InstantPreview() {
   return (
     <Box
@@ -18,15 +19,22 @@ export default function InstantPreview() {
         alignItems: "center",
       }}
     >
-      <Box sx={{ width: "585px", p:2}}>
-        <Typography sx={{ color: "#fff",mb:2 }}>Instant Preview</Typography>
-        <Box sx={{backgroundColor:"#fff", width:"100%",height:"800px"}}>.</Box>
+      <Box sx={{ width: "585px", p: 2 }}>
+        <Box sx={{display:"flex", gap:1, justifyContent:"center", alignContent:"center"}}>
+          <CloudDoneOutlinedIcon sx={{color:"white"}}/>
+          <Typography sx={{ color: "#fff", mb: 2, fontSize: "14px" }}>
+            Saved
+          </Typography>
+        </Box>
+        <Box sx={{ backgroundColor: "#fff", width: "100%", height: "800px" }}>
+          .
+        </Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            mt:2
+            mt: 2,
           }}
         >
           <Button sx={{ color: "#fff", textTransform: "none" }}>
@@ -50,7 +58,7 @@ export default function InstantPreview() {
                 color: "#fff",
                 textTransform: "none",
                 border: "1px solid #fff",
-                minWidth:"8px"
+                minWidth: "8px",
               }}
             >
               <MoreVertIcon />
