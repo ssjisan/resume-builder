@@ -50,7 +50,7 @@ export default function InstantPreview() {
                 color: "#fff",
                 textTransform: "none",
                 border: "1px solid #fff",
-                minWidth:"0px"
+                minWidth:"8px"
               }}
             >
               <MoreVertIcon />
