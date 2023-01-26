@@ -44,6 +44,7 @@ export default function DataProcessing({ children }) {
   const handleChange = (event) => {
     const title = event.target.value;
     setSocialMediaTitle(title);
+    inputRef.current.style.width = `${event.target.value.length}ch`;
     localStorage.setItem("socialMediaTitle", JSON.stringify(title));
   };
   useEffect(() => {
@@ -56,6 +57,7 @@ export default function DataProcessing({ children }) {
     }
     if (socialMediaTitle) {
       setSocialMediaTitle(socialMediaTitle);
+      inputRef.current.style.width = `${socialMediaTitle.length}ch`;
     }
   }, []);
   const handleBlur = () => {

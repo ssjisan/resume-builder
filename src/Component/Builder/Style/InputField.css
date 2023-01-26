@@ -5,6 +5,7 @@
   border: none;
   background-color: transparent;
   padding: 0px;
+  width: auto;
 }
 .input::after.input::before{
     box-sizing: inherit

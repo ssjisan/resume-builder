@@ -56,7 +56,8 @@ export default function WebsiteSocialLinks() {
       >
         <input
           ref={inputRef}
-          value={socialMediaTitle === "" ? "Untitled" : socialMediaTitle}
+          value={socialMediaTitle}
+          defaultValue={"Untitled"}
           disabled={!isEditing}
           onBlur={handleBlur}
           className="input"
