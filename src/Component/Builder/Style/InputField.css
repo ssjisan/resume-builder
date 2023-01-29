@@ -7,14 +7,17 @@
   padding: 0px;
   width: auto;
 }
-.input::after.input::before{
-    box-sizing: inherit
+.input::after.input::before {
+  box-sizing: inherit;
 }
 .input[type="text"]:focus {
   outline: none;
   border-bottom: 1px solid #5471fd;
 }
 
-.input-container:hover .edit-button{
-    display: block;
+.input-container:hover .edit-button {
+  display: block;
+}
+.title-container:hover .remove-button {
+  display: block;
 }

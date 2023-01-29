@@ -1,9 +1,10 @@
 import React, { createContext, useState } from "react";
 import { SocialMedia } from "./Components/SocialMedia";
+import { AddSection } from "./Components/AddSection";
+
 export const DataContext = createContext();
 
 export default function DataProcessing({ children }) {
-  const [expanded, setExpanded] = useState();
   const {
     socialMediaTitle,
     socialMedia,
@@ -17,19 +18,13 @@ export default function DataProcessing({ children }) {
     handleRemove,
     setSocialMediaTitle,
   } = SocialMedia();
+  const { handleClick, order, handleRemoveAddSectionList } = AddSection();
+  const [expanded, setExpanded] = useState();
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
-  const [order, setOrder] = useState([]);
-
-  const handleClick = (name) => {
-    let newArray = [...order];
-    if (!newArray.includes(name)) {
-      newArray.push(name);
-    }
-    setOrder(newArray);
-  };
+  console.log(order);
   return (
     <DataContext.Provider
       value={{
@@ -48,6 +43,7 @@ export default function DataProcessing({ children }) {
         handleBlur,
         handleClick,
         order,
+        handleRemoveAddSectionList
       }}
     >
       {children}
