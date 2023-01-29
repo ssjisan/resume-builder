@@ -3,19 +3,30 @@ import React, { useContext } from "react";
 import Progressbar from "../Component/Builder/Progressbar";
 import WebsiteSocialLinks from "../Component/Builder/WebsiteSocialLinks";
 import PersonalDetails from "../Component/Builder/PersonalDetails";
+// eslint-disable-next-line
 import ProfessionalSummary from "../Component/Builder/ProfessionalSummary";
+// eslint-disable-next-line
 import EmploymentHistory from "../Component/Builder/EmploymentHistory";
+// eslint-disable-next-line
 import Education from "../Component/Builder/Education";
+// eslint-disable-next-line
 import Languages from "../Component/Builder/Languages";
+// eslint-disable-next-line
 import Courses from "../Component/Builder/Courses";
+// eslint-disable-next-line
 import InternShip from "../Component/Builder/InternShip";
+// eslint-disable-next-line
 import ExtraCurricularActivities from "../Component/Builder/ExtraCurricularActivities";
+// eslint-disable-next-line
 import Hobbies from "../Component/Builder/Hobbies";
+// eslint-disable-next-line
 import References from "../Component/Builder/References";
+// eslint-disable-next-line
 import AddSection from "../Component/Builder/AddSection";
 import { DataContext } from "../DataProcessing/DataProcessing";
 
 export default function Builder() {
+  // eslint-disable-next-line
   const { order } = useContext(DataContext);
   return (
     <Box

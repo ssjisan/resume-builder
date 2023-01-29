@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Grid,
-  IconButton,
   TextField,
   Tooltip,
   Typography,
@@ -12,9 +11,10 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { DataContext } from "../../DataProcessing/DataProcessing";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { MobileDatePicker } from "@mui/x-date-pickers";
+// eslint-disable-next-line
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"; // eslint-disable-next-line
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"; // eslint-disable-next-line
+import { MobileDatePicker } from "@mui/x-date-pickers"; // eslint-disable-next-line
 import dayjs from "dayjs";
 
 export default function PersonalDetails() {
@@ -22,8 +22,7 @@ export default function PersonalDetails() {
   const handleMoreInfo = () => {
     setOtherDetails(!otherDetails);
   };
-  const { personaleDetails, handlePersonalDetails } =
-    useContext(DataContext);
+  const { personaleDetails, handlePersonalDetails } = useContext(DataContext);
   return (
     <Box
       sx={{
