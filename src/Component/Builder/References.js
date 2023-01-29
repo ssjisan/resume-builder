@@ -8,7 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
@@ -25,9 +25,7 @@ export default function References() {
   const handleReferentCompany = (e) => {
     setReferentCompany(e.target.value);
   };
-  const {
-    handleRemoveAddSectionList
-  } = useContext(DataContext);
+  const { handleRemoveAddSectionList } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -45,8 +43,8 @@ export default function References() {
           justifyContent: "flex-start",
           alignItems: "center",
           height: "40px",
-          gap:2,
-          mb:1
+          gap: 2,
+          mb: 1,
         }}
         className="title-container"
       >
@@ -56,12 +54,17 @@ export default function References() {
         >
           References
         </Typography>
-
-        <Box onClick={() => handleRemoveAddSectionList("reference")} sx={{ width:"40px", height:"40px", display:"none", cursor:"pointer" }} className="remove-button">
-          <DeleteOutlineRoundedIcon
-            size="small"
-            sx={{ color: "#bec4d5"}}
-          />
+        <Box
+          onClick={() => handleRemoveAddSectionList("reference")}
+          sx={{
+            width: "40px",
+            height: "40px",
+            display: "none",
+            cursor: "pointer",
+          }}
+          className="remove-button"
+        >
+          <DeleteOutlineRoundedIcon size="small" sx={{ color: "#bec4d5" }} />
         </Box>
       </Box>
       <Accordion

@@ -8,13 +8,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import { DataContext } from "../../DataProcessing/DataProcessing";
+
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
 export default function InternShip() {
@@ -25,9 +27,11 @@ export default function InternShip() {
   const handleJobTitle = (e) => {
     setJobTitle(e.target.value);
   };
-  const handleCompanyName=(e)=>{
-    setCompanyName(e.target.value)
-  }
+  const handleCompanyName = (e) => {
+    setCompanyName(e.target.value);
+  };
+  const { handleRemoveAddSectionList } = useContext(DataContext);
+
   return (
     <Box
       sx={{
@@ -39,9 +43,36 @@ export default function InternShip() {
         mb: 3,
       }}
     >
-      <Typography sx={{mb:2, fontSize: "20px", fontWeight: 700 }} color="text.500">
-      Internships
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          height: "40px",
+          gap: 2,
+          mb: 1,
+        }}
+        className="title-container"
+      >
+        <Typography
+          sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}
+          color="text.500"
+        >
+          Internships
+        </Typography>
+        <Box
+          onClick={() => handleRemoveAddSectionList("internship")}
+          sx={{
+            width: "40px",
+            height: "40px",
+            display: "none",
+            cursor: "pointer",
+          }}
+          className="remove-button"
+        >
+          <DeleteOutlineRoundedIcon size="small" sx={{ color: "#bec4d5" }} />
+        </Box>
+      </Box>
       <Accordion
         sx={{
           border: "1px solid #e7eaf4",
@@ -53,44 +84,65 @@ export default function InternShip() {
           },
         }}
       >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} className="accordion-summary">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          className="accordion-summary"
+        >
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {companyName === "" && jobTitle === "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              {companyName === "" && jobTitle === "" && (
+                <Typography
+                  sx={{ fontSize: "14px", fontWeight: 600 }}
+                  color="text.500"
+                  className="accordion-title"
+                >
+                  Not Specified
+                </Typography>
+              )}
+              {companyName === "" && jobTitle !== "" && (
+                <Typography
+                  sx={{ fontSize: "14px", fontWeight: 600 }}
+                  color="text.500"
+                  className="accordion-title"
+                >
+                  {jobTitle}
+                </Typography>
+              )}
+              {companyName !== "" && jobTitle === "" && (
+                <Typography
+                  sx={{ fontSize: "14px", fontWeight: 600 }}
+                  color="text.500"
+                  className="accordion-title"
+                >
+                  {companyName}
+                </Typography>
+              )}
+              {companyName !== "" && jobTitle !== "" && (
+                <Typography
+                  sx={{ fontSize: "14px", fontWeight: 600 }}
+                  color="text.500"
+                >
+                  {jobTitle} at {companyName}
+                </Typography>
+              )}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: "100%",
+                }}
               >
-                Not Specified
-              </Typography>
-            )}
-            {companyName === "" && jobTitle !== "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
-              >
-                {jobTitle}
-              </Typography>
-            )}
-            {companyName !== "" && jobTitle === "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
-              >
-                {companyName}
-              </Typography>
-            )}
-            {companyName !== "" && jobTitle !== "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-              >
-                {jobTitle} at {companyName}
-              </Typography>
-            )}
+                <Box size="large" className="accordion-remove-button">
+                  <DeleteOutlineRoundedIcon className="remove-button" />
+                </Box>
+              </Box>
+            </Box>
+            <Typography
+              sx={{ fontSize: "14px", fontWeight: 400 }}
+              color="text.400"
+            >
+              Jan 01
+            </Typography>
             <Box
               sx={{
                 position: "absolute",
@@ -102,24 +154,6 @@ export default function InternShip() {
                 <DeleteOutlineRoundedIcon className="remove-button" />
               </Box>
             </Box>
-          </Box>
-            <Typography
-              sx={{ fontSize: "14px", fontWeight: 400 }}
-              color="text.400"
-            >
-              Jan 01
-            </Typography>
-            <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: "100%",
-                  }}
-                >
-                   <Box size="large" className="accordion-remove-button">
-                    <DeleteOutlineRoundedIcon className="remove-button"/>
-                  </Box>
-                </Box>
           </Box>
         </AccordionSummary>
         <AccordionDetails>

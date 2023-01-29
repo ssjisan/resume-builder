@@ -16,13 +16,7 @@ import ActivitiesDisable from "../../Assets/Icons/ActivitiesDisable";
 
 export default function AddSection() {
   const {
-    openExtraCurricularActivities,
-    openHobbies,
-    openLanguages,
-    openCourses,
-    openInternship,
-    openReference,
-    handleClick,
+    handleAddSectionLists,
     order,
   } = useContext(DataContext);
   return (
@@ -53,8 +47,8 @@ export default function AddSection() {
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("extracurricular")}
-            disabled={openExtraCurricularActivities && true}
+            onClick={() => handleAddSectionLists("extracurricular")}
+            disabled={order.includes("extracurricular") && true}
           >
             Extra-curricular Activities
           </Button>
@@ -65,8 +59,8 @@ export default function AddSection() {
               order.includes("courses") ? <CourseDisable /> : <CourseActive />
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("courses")}
-            disabled={openCourses && true}
+            onClick={() => handleAddSectionLists("courses")}
+            disabled={order.includes("courses") && true}
           >
             Courses
           </Button>
@@ -77,8 +71,8 @@ export default function AddSection() {
               order.includes("hobbies") ? <HobbiesDisable /> : <HobbiesActive />
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("hobbies")}
-            disabled={openHobbies && true}
+            onClick={() => handleAddSectionLists("hobbies")}
+            disabled={order.includes("hobbies") && true}
           >
             Hobbies
           </Button>
@@ -93,8 +87,8 @@ export default function AddSection() {
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("internship")}
-            disabled={openInternship && true}
+            onClick={() => handleAddSectionLists("internship")}
+            disabled={order.includes("internship") && true}
           >
             Internships
           </Button>
@@ -109,8 +103,8 @@ export default function AddSection() {
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("languages")}
-            disabled={openLanguages && true}
+            onClick={() => handleAddSectionLists("languages")}
+            disabled={order.includes("languages") && true}
           >
             Language
           </Button>
@@ -125,8 +119,8 @@ export default function AddSection() {
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={() => handleClick("reference")}
-            disabled={openReference && true}
+            onClick={() => handleAddSectionLists("reference")}
+            disabled={order.includes("reference") && true}
           >
             References
           </Button>

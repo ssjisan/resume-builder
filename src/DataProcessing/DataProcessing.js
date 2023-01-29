@@ -18,7 +18,7 @@ export default function DataProcessing({ children }) {
     handleRemove,
     setSocialMediaTitle,
   } = SocialMedia();
-  const { handleClick, order, handleRemoveAddSectionList } = AddSection();
+  const { handleAddSectionLists, order, handleRemoveAddSectionList } = AddSection();
   const [expanded, setExpanded] = useState();
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
@@ -41,7 +41,7 @@ export default function DataProcessing({ children }) {
         handleChange,
         setSocialMediaTitle,
         handleBlur,
-        handleClick,
+        handleAddSectionLists,
         order,
         handleRemoveAddSectionList
       }}

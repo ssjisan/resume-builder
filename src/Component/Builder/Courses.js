@@ -8,12 +8,13 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
+import { DataContext } from "../../DataProcessing/DataProcessing";
+
 export default function Courses() {
   const [institute, setInstitute] = useState("");
   const [course, setCourse] = useState("");
@@ -23,6 +24,8 @@ export default function Courses() {
   const handleCourse = (e) => {
     setCourse(e.target.value);
   };
+  const { handleRemoveAddSectionList } = useContext(DataContext);
+
   return (
     <Box
       sx={{
@@ -34,12 +37,36 @@ export default function Courses() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}
-        color="text.500"
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          height: "40px",
+          gap: 2,
+          mb: 1,
+        }}
+        className="title-container"
       >
-        Courses
-      </Typography>
+        <Typography
+          sx={{ fontSize: "20px", fontWeight: 700, mb: 2 }}
+          color="text.500"
+        >
+          Courses
+        </Typography>
+        <Box
+          onClick={() => handleRemoveAddSectionList("courses")}
+          sx={{
+            width: "40px",
+            height: "40px",
+            display: "none",
+            cursor: "pointer",
+          }}
+          className="remove-button"
+        >
+          <DeleteOutlineRoundedIcon size="small" sx={{ color: "#bec4d5" }} />
+        </Box>
+      </Box>
       <Accordion
         sx={{
           border: "1px solid #e7eaf4",
@@ -107,7 +134,7 @@ export default function Courses() {
         <AccordionDetails>
           <Box>
             <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
-            <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6}>
                 <Typography
                   sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
                   color="text.400"
