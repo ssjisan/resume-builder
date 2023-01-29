@@ -32,11 +32,11 @@ export default function Builder() {
       </Typography>
       <Progressbar />
       <PersonalDetails />
-      <ProfessionalSummary />
-      <EmploymentHistory />
-      <Education />
+      {/* <ProfessionalSummary /> */}
+      {/* <EmploymentHistory /> */}
+      {/* <Education /> */}
       <WebsiteSocialLinks />
-      {order.map((name, index) => {
+      {/* {order.map((name, index) => {
         if (name === "reference") {
           return <References key={index} />;
         }
@@ -57,8 +57,8 @@ export default function Builder() {
         } else {
           return null;
         }
-      })}
-      <AddSection />
+      })} */}
+      {/* <AddSection /> */}
     </Box>
   );
 }
