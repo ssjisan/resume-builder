@@ -17,9 +17,7 @@ import { DataContext } from "../../DataProcessing/DataProcessing";
 export default function PersonalDetails() {
   const {
     handleEdit,
-
     handleHover,
-
     hoveredTitle,
     setHover,
   } = useContext(DataContext);

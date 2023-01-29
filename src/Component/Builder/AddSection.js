@@ -16,18 +16,14 @@ import ActivitiesDisable from "../../Assets/Icons/ActivitiesDisable";
 
 export default function AddSection() {
   const {
-    handleOpenExtraCurricularActivities,
-    handleOpenHobbies,
-    handleOpenLanguages,
-    handleOpenCourses,
-    handleOpenInternship,
-    handleOpenReference,
     openExtraCurricularActivities,
     openHobbies,
     openLanguages,
     openCourses,
     openInternship,
     openReference,
+    handleClick,
+    order,
   } = useContext(DataContext);
   return (
     <Box
@@ -50,14 +46,14 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openExtraCurricularActivities ? (
+              order.includes("extracurricular") ? (
                 <ActivitiesDisable />
               ) : (
                 <ActivitiesActive />
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenExtraCurricularActivities}
+            onClick={() => handleClick("extracurricular")}
             disabled={openExtraCurricularActivities && true}
           >
             Extra-curricular Activities
@@ -65,9 +61,11 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openCourses ? <CourseDisable /> : <CourseActive />}
+            startIcon={
+              order.includes("courses") ? <CourseDisable /> : <CourseActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenCourses}
+            onClick={() => handleClick("courses")}
             disabled={openCourses && true}
           >
             Courses
@@ -75,9 +73,11 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openHobbies ? <HobbiesDisable /> : <HobbiesActive />}
+            startIcon={
+              order.includes("hobbies") ? <HobbiesDisable /> : <HobbiesActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenHobbies}
+            onClick={() => handleClick("hobbies")}
             disabled={openHobbies && true}
           >
             Hobbies
@@ -86,10 +86,14 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openInternship ? <IntershipDisable /> : <IntershipActive />
+              order.includes("internship") ? (
+                <IntershipDisable />
+              ) : (
+                <IntershipActive />
+              )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenInternship}
+            onClick={() => handleClick("internship")}
             disabled={openInternship && true}
           >
             Internships
@@ -97,9 +101,15 @@ export default function AddSection() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openLanguages ? <LanguageDisable /> : <LanguageActive />}
+            startIcon={
+              order.includes("languages") ? (
+                <LanguageDisable />
+              ) : (
+                <LanguageActive />
+              )
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenLanguages}
+            onClick={() => handleClick("languages")}
             disabled={openLanguages && true}
           >
             Language
@@ -108,10 +118,14 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openReference ? <ReferenceDisable /> : <ReferenceActive />
+              order.includes("reference") ? (
+                <ReferenceDisable />
+              ) : (
+                <ReferenceActive />
+              )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenReference}
+            onClick={() => handleClick("reference")}
             disabled={openReference && true}
           >
             References

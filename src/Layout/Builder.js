@@ -16,14 +16,7 @@ import AddSection from "../Component/Builder/AddSection";
 import { DataContext } from "../DataProcessing/DataProcessing";
 
 export default function Builder() {
-  const {
-    openExtraCurricularActivities,
-    openHobbies,
-    openLanguages,
-    openCourses,
-    openReference,
-    openInternship,
-  } = useContext(DataContext);
+  const { order } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -43,12 +36,28 @@ export default function Builder() {
       <EmploymentHistory />
       <Education />
       <WebsiteSocialLinks />
-      {openLanguages && <Languages />}
-      {openCourses && <Courses />}
-      {openInternship && <InternShip />}
-      {openExtraCurricularActivities && <ExtraCurricularActivities />}
-      {openHobbies && <Hobbies />}
-      {openReference && <References />}
+      {order.map((name, index) => {
+        if (name === "reference") {
+          return <References key={index} />;
+        }
+        if (name === "hobbies") {
+          return <Hobbies key={index} />;
+        }
+        if (name === "internship") {
+          return <InternShip key={index} />;
+        }
+        if (name === "languages") {
+          return <Languages key={index} />;
+        }
+        if (name === "extracurricular") {
+          return <ExtraCurricularActivities key={index} />;
+        }
+        if (name === "courses") {
+          return <Courses key={index} />;
+        } else {
+          return null;
+        }
+      })}
       <AddSection />
     </Box>
   );
