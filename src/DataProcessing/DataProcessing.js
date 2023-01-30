@@ -21,12 +21,13 @@ export default function DataProcessing({ children }) {
   } = SocialMedia();
   const { handleAddSectionLists, order, handleRemoveAddSectionList } =
     AddSection();
-  const { personaleDetails, handlePersonalDetails } = PersonalDetails();
+  const { personaleDetails, handlePersonalDetails , setPersonalDetails} = PersonalDetails();
   const [expanded, setExpanded] = useState();
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
+  console.log(personaleDetails);
   return (
     <DataContext.Provider
       value={{
@@ -48,6 +49,7 @@ export default function DataProcessing({ children }) {
         handleRemoveAddSectionList,
         personaleDetails,
         handlePersonalDetails,
+        setPersonalDetails
       }}
     >
       {children}

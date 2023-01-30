@@ -11,7 +11,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import { DataContext } from "../../DataProcessing/DataProcessing";
-// eslint-disable-next-line
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"; // eslint-disable-next-line
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"; // eslint-disable-next-line
 import { MobileDatePicker } from "@mui/x-date-pickers"; // eslint-disable-next-line
@@ -22,7 +21,7 @@ export default function PersonalDetails() {
   const handleMoreInfo = () => {
     setOtherDetails(!otherDetails);
   };
-  const { personaleDetails, handlePersonalDetails } = useContext(DataContext);
+  const { personaleDetails, handlePersonalDetails,setPersonalDetails } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -242,15 +241,29 @@ export default function PersonalDetails() {
               >
                 Date Of Birth
               </Typography>
-              <TextField
-                variant="filled"
-                size="small"
-                value={personaleDetails.dateOfBirth}
-                name="dateOfBirth"
-                onChange={handlePersonalDetails}
-                fullWidth
-                hiddenLabel
-              />
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <MobileDatePicker
+                        views={["year", "month"]}
+                        value={personaleDetails.dateOfBirth}
+                        minDate={dayjs("1970-01-01")}
+                        maxDate={dayjs()}
+                        onChange={(newValue) => {
+                          setPersonalDetails({
+                            ...personaleDetails,
+                            dateOfBirth: dayjs(newValue).format("YYYY-MM-DD")
+                          });
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            variant="filled"
+                            size="small"
+                            hiddenLabel
+                            fullWidth
+                          />
+                        )}
+                      />
+                    </LocalizationProvider>
             </Grid>
           </>
         )}

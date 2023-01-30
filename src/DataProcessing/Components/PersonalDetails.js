@@ -12,7 +12,7 @@ export const PersonalDetails = () => {
     address: "",
     postalCode: "",
     nationality: "",
-    dateOfBirth: "",
+    dateOfBirth: ""
   });
 
   const handlePersonalDetails = (e) => {
@@ -34,5 +34,5 @@ export const PersonalDetails = () => {
     }
   }, []);
 
-  return { personaleDetails, handlePersonalDetails };
+  return { personaleDetails, handlePersonalDetails, setPersonalDetails };
 };
