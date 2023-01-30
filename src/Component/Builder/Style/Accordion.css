@@ -4,20 +4,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.accordion-summary:hover .accordion-title {
-    color: #f04c1a;
-  }
-  .accordion-summary:hover .remove-button {
-      color: #9fa6bb;
-    }
-    .remove-button {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
   color: transparent;
 }
+.accordion-summary:hover .accordion-title {
+  color: #1a91f0;
+}
 .accordion-remove-button:hover .remove-button {
-    color: #1a91f0;
+  color: #1a91f0;
+  }
+  .accordion-summary:hover + .accordion-remove-button .remove-button {
+    color: gray;
+    }
+
+.accordion-container {
+  position: relative;
 }
 
-.accordion-summary:hover .accordion-title {
-  color: #1a91f0 !important;
+/* .accordion-container {
+  position: relative;
 }
+
+.delete-icon-button {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  display: none;
+  transform: translateY(-50%);
+} */

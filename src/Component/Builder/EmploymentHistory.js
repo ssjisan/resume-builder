@@ -25,9 +25,9 @@ export default function EmploymentHistory() {
   const handleJobTitle = (e) => {
     setJobTitle(e.target.value);
   };
-  const handleCompanyName=(e)=>{
-    setCompanyName(e.target.value)
-  }
+  const handleCompanyName = (e) => {
+    setCompanyName(e.target.value);
+  };
   return (
     <Box
       sx={{
@@ -46,198 +46,32 @@ export default function EmploymentHistory() {
         A varied education on your resume sums up the value that your learnings
         and background will bring to job.
       </Typography>
-      <Accordion
-        sx={{
-          border: "1px solid #e7eaf4",
-          borderRadius: 2,
-          boxShadow: "none",
-          mb: 2,
-          "&:before": {
-            display: "none",
-          },
-        }}
-      >
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} className="accordion-summary">
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            {companyName === "" && jobTitle === "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
-              >
-                Not Specified
-              </Typography>
-            )}
-            {companyName === "" && jobTitle !== "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
-              >
-                {jobTitle}
-              </Typography>
-            )}
-            {companyName !== "" && jobTitle === "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-                className="accordion-title"
-              >
-                {companyName}
-              </Typography>
-            )}
-            {companyName !== "" && jobTitle !== "" && (
-              <Typography
-                sx={{ fontSize: "14px", fontWeight: 600 }}
-                color="text.500"
-              >
-                {jobTitle} at {companyName}
-              </Typography>
-            )}
-            <Box
-              sx={{
-                position: "absolute",
-                top: 0,
-                left: "100%",
-              }}
+      <Box className="accordion-container">
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            className="accordion-summary"
+          >
+            <Typography
+              sx={{ fontSize: "14px", fontWeight: 400 }}
+              color="text.400"className="accordion-title"
             >
-              <Box size="large" className="accordion-remove-button">
-                <DeleteOutlineRoundedIcon className="remove-button" />
-              </Box>
-            </Box>
-          </Box>
+              Accordion Header
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
             <Typography
               sx={{ fontSize: "14px", fontWeight: 400 }}
               color="text.400"
             >
-              Jan 01
+              Accordion Body
             </Typography>
-            <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: "100%",
-                  }}
-                >
-                   <Box size="large" className="accordion-remove-button">
-                    <DeleteOutlineRoundedIcon className="remove-button"/>
-                  </Box>
-                </Box>
-          </Box>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ p: 2 }}>
-            <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
-              <Grid item xs={12} md={6}>
-                <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
-                >
-                  Job title
-                </Typography>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  name="Job Title"
-                  value={jobTitle}
-                  fullWidth
-                  hiddenLabel
-                  onChange={handleJobTitle}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
-                >
-                  Company Name
-                </Typography>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  name="Company Name"
-                  value={companyName}
-                  fullWidth
-                  hiddenLabel
-                  onChange={handleCompanyName}
-                />
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
-                >
-                  Start & End Date
-                </Typography>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} lg={6}>
-                    {" "}
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <MobileDatePicker
-                        views={["year", "month"]}
-                        value={startDate}
-                        minDate={dayjs("2012-01-01")}
-                        maxDate={dayjs("2023-06-01")}
-                        onChange={(newValue) => {
-                          setStartDate(newValue);
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            variant="filled"
-                            size="small"
-                            hiddenLabel
-                            fullWidth
-                          />
-                        )}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-                  <Grid item xs={12} lg={6}>
-                    {" "}
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <MobileDatePicker
-                        views={["year", "month"]}
-                        value={endDate}
-                        minDate={dayjs("2012-01-01")}
-                        maxDate={dayjs("2023-06-01")}
-                        onChange={(newValue) => {
-                          setEndDate(newValue);
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            variant="filled"
-                            size="small"
-                            hiddenLabel
-                            fullWidth
-                          />
-                        )}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography
-                  sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                  color="text.400"
-                >
-                  Location
-                </Typography>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  fullWidth
-                  hiddenLabel
-                />
-              </Grid>
-              <Grid item lg={12}></Grid>
-            </Grid>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
+          </AccordionDetails>
+        </Accordion>
+        <Box className="accordion-remove-button" sx={{ml:1}}>
+          <DeleteOutlineRoundedIcon className="remove-button"/>
+        </Box>
+      </Box>
       <Button
         sx={{
           textTransform: "none",

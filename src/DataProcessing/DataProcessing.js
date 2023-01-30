@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
-import { SocialMedia } from "./Components/SocialMedia";
 import { AddSection } from "./Components/AddSection";
-import { PersonalDetails } from "./Components/PersonalDetails";
+import { PersonalDetailsData } from "./Components/PersonalDetailsData";
+import { SocialMediaData } from "./Components/SocialMediaData";
 
 export const DataContext = createContext();
 
@@ -18,10 +18,10 @@ export default function DataProcessing({ children }) {
     handleInputChange,
     handleRemove,
     setSocialMediaTitle,
-  } = SocialMedia();
+  } = SocialMediaData();
   const { handleAddSectionLists, order, handleRemoveAddSectionList } =
     AddSection();
-  const { personaleDetails, handlePersonalDetails , setPersonalDetails} = PersonalDetails();
+  const { personaleDetails, handlePersonalDetails , setPersonalDetails} = PersonalDetailsData();
   const [expanded, setExpanded] = useState();
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {

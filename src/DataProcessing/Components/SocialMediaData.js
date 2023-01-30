@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export const SocialMedia = () => {
+export const SocialMediaData = () => {
   const [socialMedia, setSocialMedia] = useState([]);
   const [socialMediaTitle, setSocialMediaTitle] = useState("");
   const inputRef = useRef(null);

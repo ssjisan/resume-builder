@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const PersonalDetails = () => {
+export const PersonalDetailsData = () => {
   const [personaleDetails, setPersonalDetails] = useState({
     jobTitle: "",
     firstName: "",
