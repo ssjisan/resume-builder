@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Grid,
-  IconButton,
   TextField,
   Tooltip,
   Typography,
@@ -11,22 +10,19 @@ import React, { useState, useContext } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { DataContext } from "../../DataProcessing/DataProcessing";
+// eslint-disable-next-line
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"; // eslint-disable-next-line
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"; // eslint-disable-next-line
+import { MobileDatePicker } from "@mui/x-date-pickers"; // eslint-disable-next-line
+import dayjs from "dayjs";
 
 export default function PersonalDetails() {
-  const {
-    handleEdit,
-
-    handleHover,
-
-    hoveredTitle,
-    setHover,
-  } = useContext(DataContext);
   const [otherDetails, setOtherDetails] = useState(false);
   const handleMoreInfo = () => {
     setOtherDetails(!otherDetails);
   };
+  const { personaleDetails, handlePersonalDetails } = useContext(DataContext);
   return (
     <Box
       sx={{
@@ -48,23 +44,10 @@ export default function PersonalDetails() {
           height: "42px",
           width: "100%",
         }}
-        onMouseEnter={() => handleHover("Personal Details Title")}
-        onMouseLeave={() => setHover(false)}
       >
         <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
           Personal Details
         </Typography>
-        <IconButton
-          onClick={handleEdit}
-          sx={{
-            display:
-              hoveredTitle === "Personal Details Title" ? "block" : "none",
-            width: "40px",
-            height: "40px",
-          }}
-        >
-          <DriveFileRenameOutlineIcon size="small" sx={{ color: "#bec4d5" }} />
-        </IconButton>
       </Box>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 4 }}>
         <Grid item xs={12} md={6}>
@@ -90,6 +73,9 @@ export default function PersonalDetails() {
             size="small"
             fullWidth
             placeholder="e.g UI/UX Designer"
+            name="jobTitle"
+            onChange={handlePersonalDetails}
+            value={personaleDetails.jobTitle}
             hiddenLabel
           />
         </Grid>
@@ -101,7 +87,15 @@ export default function PersonalDetails() {
           >
             First Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.firstName}
+            name="firstName"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -110,7 +104,15 @@ export default function PersonalDetails() {
           >
             Last Name
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.lastName}
+            name="lastName"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -119,7 +121,15 @@ export default function PersonalDetails() {
           >
             Email
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.email}
+            name="email"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -128,7 +138,15 @@ export default function PersonalDetails() {
           >
             Phone
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.phone}
+            name="phone"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -137,7 +155,15 @@ export default function PersonalDetails() {
           >
             Country
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.country}
+            name="country"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography
@@ -146,7 +172,15 @@ export default function PersonalDetails() {
           >
             City
           </Typography>
-          <TextField variant="filled" size="small" fullWidth hiddenLabel />
+          <TextField
+            variant="filled"
+            size="small"
+            value={personaleDetails.city}
+            name="city"
+            onChange={handlePersonalDetails}
+            fullWidth
+            hiddenLabel
+          />
         </Grid>
         {otherDetails && (
           <>
@@ -157,7 +191,15 @@ export default function PersonalDetails() {
               >
                 Address
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel />
+              <TextField
+                variant="filled"
+                size="small"
+                value={personaleDetails.address}
+                name="address"
+                onChange={handlePersonalDetails}
+                fullWidth
+                hiddenLabel
+              />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -166,7 +208,15 @@ export default function PersonalDetails() {
               >
                 Postal Code
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel />
+              <TextField
+                variant="filled"
+                size="small"
+                value={personaleDetails.postalCode}
+                name="postalCode"
+                onChange={handlePersonalDetails}
+                fullWidth
+                hiddenLabel
+              />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -175,7 +225,15 @@ export default function PersonalDetails() {
               >
                 Nationality
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel />
+              <TextField
+                variant="filled"
+                size="small"
+                value={personaleDetails.nationality}
+                name="nationality"
+                onChange={handlePersonalDetails}
+                fullWidth
+                hiddenLabel
+              />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography
@@ -184,7 +242,15 @@ export default function PersonalDetails() {
               >
                 Date Of Birth
               </Typography>
-              <TextField variant="filled" size="small" fullWidth hiddenLabel />
+              <TextField
+                variant="filled"
+                size="small"
+                value={personaleDetails.dateOfBirth}
+                name="dateOfBirth"
+                onChange={handlePersonalDetails}
+                fullWidth
+                hiddenLabel
+              />
             </Grid>
           </>
         )}

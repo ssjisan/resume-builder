@@ -7,24 +7,17 @@
   padding: 0px;
   width: auto;
 }
-.input::after.input::before{
-    box-sizing: inherit
+.input::after.input::before {
+  box-sizing: inherit;
 }
 .input[type="text"]:focus {
   outline: none;
   border-bottom: 1px solid #5471fd;
 }
 
-.input-container:hover .edit-button{
-    display: block;
+.input-container:hover .edit-button {
+  display: block;
 }
-#input-field {
-  outline: none;
-    border: 0px;
-    transition: color 0.1s ease 0s;
-    background-color: rgb(239, 242, 249)
-}
-#input-field:focus {
-  border-bottom: 2px solid black;
-  transform: scaleX(0.5)
+.title-container:hover .remove-button {
+  display: block;
 }

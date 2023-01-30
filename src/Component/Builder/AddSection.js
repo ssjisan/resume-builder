@@ -16,18 +16,8 @@ import ActivitiesDisable from "../../Assets/Icons/ActivitiesDisable";
 
 export default function AddSection() {
   const {
-    handleOpenExtraCurricularActivities,
-    handleOpenHobbies,
-    handleOpenLanguages,
-    handleOpenCourses,
-    handleOpenInternship,
-    handleOpenReference,
-    openExtraCurricularActivities,
-    openHobbies,
-    openLanguages,
-    openCourses,
-    openInternship,
-    openReference,
+    handleAddSectionLists,
+    order,
   } = useContext(DataContext);
   return (
     <Box
@@ -50,35 +40,39 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openExtraCurricularActivities ? (
+              order.includes("extracurricular") ? (
                 <ActivitiesDisable />
               ) : (
                 <ActivitiesActive />
               )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenExtraCurricularActivities}
-            disabled={openExtraCurricularActivities && true}
+            onClick={() => handleAddSectionLists("extracurricular")}
+            disabled={order.includes("extracurricular") && true}
           >
             Extra-curricular Activities
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openCourses ? <CourseDisable /> : <CourseActive />}
+            startIcon={
+              order.includes("courses") ? <CourseDisable /> : <CourseActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenCourses}
-            disabled={openCourses && true}
+            onClick={() => handleAddSectionLists("courses")}
+            disabled={order.includes("courses") && true}
           >
             Courses
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openHobbies ? <HobbiesDisable /> : <HobbiesActive />}
+            startIcon={
+              order.includes("hobbies") ? <HobbiesDisable /> : <HobbiesActive />
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenHobbies}
-            disabled={openHobbies && true}
+            onClick={() => handleAddSectionLists("hobbies")}
+            disabled={order.includes("hobbies") && true}
           >
             Hobbies
           </Button>
@@ -86,21 +80,31 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openInternship ? <IntershipDisable /> : <IntershipActive />
+              order.includes("internship") ? (
+                <IntershipDisable />
+              ) : (
+                <IntershipActive />
+              )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenInternship}
-            disabled={openInternship && true}
+            onClick={() => handleAddSectionLists("internship")}
+            disabled={order.includes("internship") && true}
           >
             Internships
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            startIcon={openLanguages ? <LanguageDisable /> : <LanguageActive />}
+            startIcon={
+              order.includes("languages") ? (
+                <LanguageDisable />
+              ) : (
+                <LanguageActive />
+              )
+            }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenLanguages}
-            disabled={openLanguages && true}
+            onClick={() => handleAddSectionLists("languages")}
+            disabled={order.includes("languages") && true}
           >
             Language
           </Button>
@@ -108,11 +112,15 @@ export default function AddSection() {
         <Grid item xs={12} md={6}>
           <Button
             startIcon={
-              openReference ? <ReferenceDisable /> : <ReferenceActive />
+              order.includes("reference") ? (
+                <ReferenceDisable />
+              ) : (
+                <ReferenceActive />
+              )
             }
             sx={{ fontSize: "16px", fontWeight: 500, textTransform: "none" }}
-            onClick={handleOpenReference}
-            disabled={openReference && true}
+            onClick={() => handleAddSectionLists("reference")}
+            disabled={order.includes("reference") && true}
           >
             References
           </Button>

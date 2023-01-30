@@ -71,6 +71,7 @@ export default function Theme({ children }) {
             backgroundColor: "#eff2f9",
             fontSize: "16px",
             color:"#1E2532",
+            fontWeight:500,
             padding: " 4px 4px 4px 4px",
             "&:hover": {
               backgroundColor: "#eff2f9",
