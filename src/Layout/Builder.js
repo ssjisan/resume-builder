@@ -43,8 +43,8 @@ export default function Builder() {
       </Typography>
       <Progressbar />
       <PersonalDetails />
-      {/* <ProfessionalSummary /> */}
-      <EmploymentHistory />
+      <ProfessionalSummary />
+      {/* <EmploymentHistory /> */}
       {/* <Education /> */}
       <WebsiteSocialLinks />
       {/* {order.map((name, index) => {

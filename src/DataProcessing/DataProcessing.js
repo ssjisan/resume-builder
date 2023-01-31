@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import { AddSection } from "./Components/AddSection";
 import { PersonalDetailsData } from "./Components/PersonalDetailsData";
+import { ProfessionalSummaryData } from "./Components/ProfessionalSummaryData";
 import { SocialMediaData } from "./Components/SocialMediaData";
 
 export const DataContext = createContext();
@@ -21,13 +22,15 @@ export default function DataProcessing({ children }) {
   } = SocialMediaData();
   const { handleAddSectionLists, order, handleRemoveAddSectionList } =
     AddSection();
-  const { personaleDetails, handlePersonalDetails , setPersonalDetails} = PersonalDetailsData();
+  const { personaleDetails, handlePersonalDetails, setPersonalDetails } =
+    PersonalDetailsData();
   const [expanded, setExpanded] = useState();
   // For Details Accordion
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
-  console.log(personaleDetails);
+  const { handleEditorChange, professionalSummary } = ProfessionalSummaryData();
+  console.log(professionalSummary);
   return (
     <DataContext.Provider
       value={{
@@ -49,7 +52,9 @@ export default function DataProcessing({ children }) {
         handleRemoveAddSectionList,
         personaleDetails,
         handlePersonalDetails,
-        setPersonalDetails
+        setPersonalDetails,
+        handleEditorChange,
+        professionalSummary,
       }}
     >
       {children}

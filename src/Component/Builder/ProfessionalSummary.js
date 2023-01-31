@@ -1,7 +1,11 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
-
+import React, { useContext } from "react";
+import { Editor } from "@tinymce/tinymce-react";
+import "./Style/EditorStyle.css";
+import { DataContext } from "../../DataProcessing/DataProcessing";
 export default function ProfessionalSummary() {
+  const { handleEditorChange, professionalSummary } = useContext(DataContext);
+
   return (
     <Box
       sx={{
@@ -13,10 +17,7 @@ export default function ProfessionalSummary() {
         mb: 3,
       }}
     >
-      <Typography
-        sx={{ fontSize: "20px", fontWeight: 700}}
-        color="text.500"
-      >
+      <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
         Professional Summary
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
@@ -24,6 +25,34 @@ export default function ProfessionalSummary() {
         your role, experience & most importantly - your biggest achievements,
         best qualities and skills.
       </Typography>
+      <Box>
+        <Editor
+          apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
+          onEditorChange={handleEditorChange}
+          initialValue={professionalSummary}
+          
+          init={{
+            caret_start: professionalSummary.length,
+            caret_end: professionalSummary.length,
+            placeholder:
+              "e.g. Passionate science teacher with 8+ years of experience and a track record of ...",
+            height: 250,
+            menubar: false,
+            statusbar: false,
+            background_colors: "red",
+            plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table paste code help wordcount",
+              "underline",
+              "strikethrough",
+              "lists",
+            ],
+            toolbar: "bold italic underline strikethrough | bullist numlist",
+            content_style: "body { font-size:16px ; font-weight: 500 }",
+          }}
+        />
+      </Box>
     </Box>
   );
 }
