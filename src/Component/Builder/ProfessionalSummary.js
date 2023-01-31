@@ -30,10 +30,8 @@ export default function ProfessionalSummary() {
           apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
           onEditorChange={handleEditorChange}
           initialValue={professionalSummary}
-          
           init={{
-            caret_start: professionalSummary.length,
-            caret_end: professionalSummary.length,
+            directionality: "ltr",
             placeholder:
               "e.g. Passionate science teacher with 8+ years of experience and a track record of ...",
             height: 250,
