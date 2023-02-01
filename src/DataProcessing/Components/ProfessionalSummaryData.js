@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 export const ProfessionalSummaryData = () => {
-  const [professionalSummary, setProfessionalSummary] = useState("");
+  const [professionalSummary, setProfessionalSummary] = useState();
+
   const handleEditorChange = (professionalSummary, editor) => {
     setProfessionalSummary(professionalSummary);
     localStorage.setItem(
@@ -8,6 +9,7 @@ export const ProfessionalSummaryData = () => {
       JSON.stringify(professionalSummary)
     );
   };
+  console.log(professionalSummary);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("professional-summary"));
     if (data) {
@@ -15,5 +17,5 @@ export const ProfessionalSummaryData = () => {
     }
   }, []);
 
-  return { handleEditorChange, professionalSummary };
+  return { handleEditorChange, professionalSummary,setProfessionalSummary };
 };
