@@ -28,7 +28,7 @@ export default function ProfessionalSummary() {
       <Box>
         <Editor
           apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
-          initialValue={professionalSummary}
+          value={professionalSummary}
           onEditorChange={handleEditorChange}
           init={{
             auto_focus: false,
