@@ -9,7 +9,6 @@ export const ProfessionalSummaryData = () => {
       JSON.stringify(professionalSummary)
     );
   };
-  console.log(professionalSummary);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("professional-summary"));
     if (data) {
