@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
 export const ProfessionalSummaryData = () => {
   const [professionalSummary, setProfessionalSummary] = useState("");
-  const handleEditorChange = (professionalSummary, editor) => {
+  const handleEditorChange = (professionalSummary) => {
     setProfessionalSummary(professionalSummary);
-    localStorage.setItem(
-      "professional-summary",
-      JSON.stringify(professionalSummary)
-    );
+    localStorage.setItem("professional-summary", professionalSummary);
   };
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("professional-summary"));
-    if (data) {
-      setProfessionalSummary(data);
+    const savedData = localStorage.getItem("professional-summary");
+    if (savedData) {
+      setProfessionalSummary(savedData);
     }
   }, []);
 

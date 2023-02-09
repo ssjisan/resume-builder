@@ -29,7 +29,6 @@ export default function ProfessionalSummary() {
         <Editor
           apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
           onEditorChange={handleEditorChange}
-          initialValue={professionalSummary}
           init={{
             directionality: "ltr",
             placeholder:
