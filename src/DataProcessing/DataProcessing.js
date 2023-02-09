@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { AddSection } from "./Components/AddSection";
+import { EmploymentHistoryData } from "./Components/EmploymentHistoryData";
 import { PersonalDetailsData } from "./Components/PersonalDetailsData";
 import { ProfessionalSummaryData } from "./Components/ProfessionalSummaryData";
 import { SocialMediaData } from "./Components/SocialMediaData";
@@ -29,7 +30,23 @@ export default function DataProcessing({ children }) {
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
-  const { handleEditorChange, professionalSummary, } = ProfessionalSummaryData();
+  const { handleEditorChange, professionalSummary } = ProfessionalSummaryData();
+  const {
+    handleEmploymentDetails,
+    jobDescription,
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate,
+    employmentAccordionexpanded,
+    handleEmploymentAccordion,
+    handleAddEmploymentHistory,
+    handleEmploymentHistory,
+    removeEmploymentHistory,
+    setEmploymentHistory,
+    employmentHistory,
+  } = EmploymentHistoryData();
+  console.log(employmentHistory);
   return (
     <DataContext.Provider
       value={{
@@ -53,7 +70,20 @@ export default function DataProcessing({ children }) {
         handlePersonalDetails,
         setPersonalDetails,
         handleEditorChange,
-        professionalSummary
+        professionalSummary,
+        handleEmploymentDetails,
+        jobDescription,
+        startDate,
+        endDate,
+        setStartDate,
+        setEndDate,
+        employmentAccordionexpanded,
+        handleEmploymentAccordion,
+        handleAddEmploymentHistory,
+        handleEmploymentHistory,
+        removeEmploymentHistory,
+        setEmploymentHistory,
+        employmentHistory,
       }}
     >
       {children}

@@ -21,7 +21,8 @@ export default function PersonalDetails() {
   const handleMoreInfo = () => {
     setOtherDetails(!otherDetails);
   };
-  const { personaleDetails, handlePersonalDetails,setPersonalDetails } = useContext(DataContext);
+  const { personaleDetails, handlePersonalDetails, setPersonalDetails } =
+    useContext(DataContext);
   return (
     <Box
       sx={{
@@ -242,28 +243,28 @@ export default function PersonalDetails() {
                 Date Of Birth
               </Typography>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <MobileDatePicker
-                        views={["year", "month"]}
-                        value={personaleDetails.dateOfBirth}
-                        minDate={dayjs("1970-01-01")}
-                        maxDate={dayjs()}
-                        onChange={(newValue) => {
-                          setPersonalDetails({
-                            ...personaleDetails,
-                            dateOfBirth: dayjs(newValue).format("YYYY-MM-DD")
-                          });
-                        }}
-                        renderInput={(params) => (
-                          <TextField
-                            {...params}
-                            variant="filled"
-                            size="small"
-                            hiddenLabel
-                            fullWidth
-                          />
-                        )}
-                      />
-                    </LocalizationProvider>
+                <MobileDatePicker
+                  views={["year", "month"]}
+                  value={personaleDetails.dateOfBirth}
+                  minDate={dayjs("1970-01-01")}
+                  maxDate={dayjs()}
+                  onChange={(newValue) => {
+                    setPersonalDetails({
+                      ...personaleDetails,
+                      dateOfBirth: dayjs(newValue).format("YYYY-MM-DD"),
+                    });
+                  }}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      variant="filled"
+                      size="small"
+                      hiddenLabel
+                      fullWidth
+                    />
+                  )}
+                />
+              </LocalizationProvider>
             </Grid>
           </>
         )}
