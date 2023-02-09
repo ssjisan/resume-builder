@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Progressbar from "../Component/Builder/Progressbar";
 // eslint-disable-next-line
 import WebsiteSocialLinks from "../Component/Builder/WebsiteSocialLinks";
+// eslint-disable-next-line
 import PersonalDetails from "../Component/Builder/PersonalDetails";
 // eslint-disable-next-line
 import ProfessionalSummary from "../Component/Builder/ProfessionalSummary";
@@ -25,6 +26,8 @@ import References from "../Component/Builder/References";
 // eslint-disable-next-line
 import AddSection from "../Component/Builder/AddSection";
 import { DataContext } from "../DataProcessing/DataProcessing";
+// eslint-disable-next-line
+import Test from "../Component/Builder/Test";
 
 export default function Builder() {
   // eslint-disable-next-line
@@ -43,6 +46,7 @@ export default function Builder() {
         Resume
       </Typography>
       <Progressbar />
+      {/* <Test/> */}
       <PersonalDetails />
       <ProfessionalSummary />
       <EmploymentHistory />

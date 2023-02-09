@@ -8,7 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -29,8 +29,9 @@ export default function EmploymentHistory() {
     handleEmploymentHistory,
     removeEmploymentHistory,
     employmentHistory,
-    setEmploymentHistory,
-    handleEmploymentDetails
+    handleEmploymentDetails,
+    employmentStartDate,
+    employmentEndDate,
   } = useContext(DataContext);
 
   return (
@@ -53,7 +54,6 @@ export default function EmploymentHistory() {
       </Typography>
       {employmentHistory?.map((data, i) => {
         return (
-          <Box>
             <Accordion
               sx={{
                 border: "1px solid #e7eaf4",
@@ -73,42 +73,59 @@ export default function EmploymentHistory() {
                 className="accordion-summary"
               >
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  {data?.companyName === "" && data.jobTitle === "" && (
-                    <Typography
-                      sx={{ fontSize: "14px", fontWeight: 600 }}
-                      color="text.500"
-                      className="accordion-title"
-                    >
-                      Not Specified
-                    </Typography>
-                  )}
-                  {data?.companyName === "" && data.jobTitle !== "" && (
-                    <Typography
-                      sx={{ fontSize: "14px", fontWeight: 600 }}
-                      color="text.500"
-                      className="accordion-title"
-                    >
-                      {data.jobTitle}
-                    </Typography>
-                  )}
-                  {data?.companyName !== "" && data.jobTitle === "" && (
-                    <Typography
-                      sx={{ fontSize: "14px", fontWeight: 600 }}
-                      color="text.500"
-                      className="accordion-title"
-                    >
-                      {data.companyName}
-                    </Typography>
-                  )}
-                  {data?.companyName !== "" && data.jobTitle !== "" && (
-                    <Typography
-                      sx={{ fontSize: "14px", fontWeight: 600 }}
-                      color="text.500"
-                      className="accordion-title"
-                    >
-                      {data.jobTitle} at {data.companyName}
-                    </Typography>
-                  )}
+                  <Box>
+                    <Box>
+                      {data?.companyName === "" && data.jobTitle === "" && (
+                        <Typography
+                          sx={{ fontSize: "14px", fontWeight: 600 }}
+                          color="text.500"
+                          className="accordion-title"
+                        >
+                          Not Specified
+                        </Typography>
+                      )}
+                      {data?.companyName === "" && data.jobTitle !== "" && (
+                        <Typography
+                          sx={{ fontSize: "14px", fontWeight: 600 }}
+                          color="text.500"
+                          className="accordion-title"
+                        >
+                          {data.jobTitle}
+                        </Typography>
+                      )}
+                      {data?.companyName !== "" && data.jobTitle === "" && (
+                        <Typography
+                          sx={{ fontSize: "14px", fontWeight: 600 }}
+                          color="text.500"
+                          className="accordion-title"
+                        >
+                          {data.companyName}
+                        </Typography>
+                      )}
+                      {data?.companyName !== "" && data.jobTitle !== "" && (
+                        <Typography
+                          sx={{ fontSize: "14px", fontWeight: 600 }}
+                          color="text.500"
+                          className="accordion-title"
+                        >
+                          {data.jobTitle} at {data.companyName}
+                        </Typography>
+                      )}
+                    </Box>
+                    <Box>
+                      {data?.startDate !== "" && data.endDate !== "" && (
+                        <Typography
+                          sx={{
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            color: "#828BA2",
+                          }}
+                        >
+                          {data?.startDate} - {data?.endDate}
+                        </Typography>
+                      )}
+                    </Box>
+                  </Box>
                   <Box
                     className="accordion-remove-button"
                     onClick={() => removeEmploymentHistory(i)}
@@ -168,20 +185,15 @@ export default function EmploymentHistory() {
                       <Grid container spacing={2}>
                         <Grid item xs={12} lg={6}>
                           {" "}
-                          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <MobileDatePicker
                               views={["year", "month"]}
                               value={data.startDate}
-                              minDate={dayjs("1970-01-01")}
+                              minDate={dayjs("2000-01-01")}
                               maxDate={dayjs()}
-                              name="startDate"
-                              onChange={(newValue) => {
-                                setEmploymentHistory({
-                                  ...employmentHistory,
-                                  startDate:
-                                    dayjs(newValue).format("YYYY-MM-DD"),
-                                });
-                              }}
+                              onChange={(newValue) =>
+                                employmentStartDate(newValue, i)
+                              }
                               renderInput={(params) => (
                                 <TextField
                                   {...params}
@@ -192,22 +204,19 @@ export default function EmploymentHistory() {
                                 />
                               )}
                             />
-                          </LocalizationProvider> */}
+                          </LocalizationProvider>
                         </Grid>
                         <Grid item xs={12} lg={6}>
                           {" "}
-                          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <MobileDatePicker
                               views={["year", "month"]}
                               value={data.endDate}
-                              minDate={dayjs("1970-01-01")}
+                              minDate={dayjs("2000-01-01")}
                               maxDate={dayjs()}
-                              onChange={(newValue) => {
-                                setEmploymentHistory({
-                                  ...employmentHistory,
-                                  endDate: dayjs(newValue).format("YYYY-MM-DD"),
-                                });
-                              }}
+                              onChange={(newValue) =>
+                                employmentEndDate(newValue, i)
+                              }
                               renderInput={(params) => (
                                 <TextField
                                   {...params}
@@ -218,7 +227,7 @@ export default function EmploymentHistory() {
                                 />
                               )}
                             />
-                          </LocalizationProvider> */}
+                          </LocalizationProvider>
                         </Grid>
                       </Grid>
                     </Grid>
@@ -240,46 +249,46 @@ export default function EmploymentHistory() {
                       />
                     </Grid>
                     <Grid item lg={12}>
-                    <Typography
-                      sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
-                      color="text.400"
-                    >
-                      Description
-                    </Typography>
-                    <Editor
-                      apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
-                      value={data.jobDescription}
-                      name="jobDescription"
-                      onEditorChange={handleEmploymentDetails}
-                      init={{
-                        auto_focus: false,
-                        directionality: "ltr",
-                        placeholder:
-                          "e.g. Passionate science teacher with 8+ years of experience and a track record of ...",
-                        height: 250,
-                        menubar: false,
-                        statusbar: false,
-                        background_colors: "red",
-                        plugins: [
-                          "advlist autolink lists link image charmap print preview anchor",
-                          "searchreplace visualblocks code fullscreen",
-                          "insertdatetime media table paste code help wordcount",
-                          "underline",
-                          "strikethrough",
-                          "lists",
-                        ],
-                        toolbar:
-                          "bold italic underline strikethrough | bullist numlist",
-                        content_style:
-                          "body { font-size:16px ; font-weight: 500 }",
-                      }}
-                    />
-                  </Grid>
+                      <Typography
+                        sx={{ fontSize: "14px", mb: 1, fontWeight: 400 }}
+                        color="text.400"
+                      >
+                        Description
+                      </Typography>
+                      <Editor
+                        apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
+                        value={data.jobDescription}
+                        onEditorChange={(content) =>
+                          handleEmploymentDetails(content, i)
+                        }
+                        init={{
+                          auto_focus: false,
+                          directionality: "ltr",
+                          placeholder:
+                            "e.g. Passionate science teacher with 8+ years of experience and a track record of ...",
+                          height: 250,
+                          menubar: false,
+                          statusbar: false,
+                          background_colors: "red",
+                          plugins: [
+                            "advlist autolink lists link image charmap print preview anchor",
+                            "searchreplace visualblocks code fullscreen",
+                            "insertdatetime media table paste code help wordcount",
+                            "underline",
+                            "strikethrough",
+                            "lists",
+                          ],
+                          toolbar:
+                            "bold italic underline strikethrough | bullist numlist",
+                          content_style:
+                            "body { font-size:16px ; font-weight: 500 }",
+                        }}
+                      />
+                    </Grid>
                   </Grid>
                 </Box>
               </AccordionDetails>
             </Accordion>
-          </Box>
         );
       })}
       <Button

@@ -1,10 +1,8 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import dayjs from "dayjs";
+
 export const EmploymentHistoryData = () => {
   const [employmentHistory, setEmploymentHistory] = useState([]);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [jobDescription, setJobDescription] = useState();
-
   const [employmentAccordionexpanded, setEmploymentAccordionexpanded] =
     useState();
   const handleEmploymentAccordion = (i) => (event, newExpanded) => {
@@ -23,30 +21,47 @@ export const EmploymentHistoryData = () => {
       },
     ]);
   };
-  const handleEmploymentDetails = (jobDescription, editor) => {
-    setEmploymentHistory({
-      ...employmentHistory,
-      jobDescription: jobDescription,
-    });
-  };
   const handleEmploymentHistory = (e, index) => {
     const { name, value } = e.target;
     const list = [...employmentHistory];
     list[index][name] = value;
     setEmploymentHistory(list);
+    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+  };
+  const employmentStartDate = (event, i) => {
+    const list = [...employmentHistory];
+    const date = dayjs(event).format("YYYY-MM-DD");
+    list[i].startDate = date;
+    setEmploymentHistory(list);
+    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+  };
+  const employmentEndDate = (event, i) => {
+    const list = [...employmentHistory];
+    const date = dayjs(event).format("YYYY-MM-DD");
+    list[i].endDate = date;
+    setEmploymentHistory(list);
+    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+  };
+  const handleEmploymentDetails = (content, i) => {
+    const list = [...employmentHistory];
+    list[i].jobDescription = content;
+    setEmploymentHistory(list);
+    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
   };
   const removeEmploymentHistory = (i) => {
     const list = [...employmentHistory];
     list.splice(i, 1);
     setEmploymentHistory(list);
+    localStorage.setItem("employment-history", JSON.stringify(list));
   };
+  useEffect(() => {
+    const employmentData = JSON.parse(localStorage.getItem("employment-history"));
+    if (employmentData) {
+      setEmploymentHistory(employmentData);
+    }
+  }, []);
   return {
     handleEmploymentDetails,
-    jobDescription,
-    startDate,
-    endDate,
-    setStartDate,
-    setEndDate,
     handleEmploymentAccordion,
     handleAddEmploymentHistory,
     handleEmploymentHistory,
@@ -54,5 +69,7 @@ export const EmploymentHistoryData = () => {
     setEmploymentHistory,
     employmentHistory,
     employmentAccordionexpanded,
+    employmentStartDate,
+    employmentEndDate,
   };
 };

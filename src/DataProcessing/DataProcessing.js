@@ -34,10 +34,6 @@ export default function DataProcessing({ children }) {
   const {
     handleEmploymentDetails,
     jobDescription,
-    startDate,
-    endDate,
-    setStartDate,
-    setEndDate,
     employmentAccordionexpanded,
     handleEmploymentAccordion,
     handleAddEmploymentHistory,
@@ -45,6 +41,8 @@ export default function DataProcessing({ children }) {
     removeEmploymentHistory,
     setEmploymentHistory,
     employmentHistory,
+    employmentStartDate,
+    employmentEndDate,
   } = EmploymentHistoryData();
   console.log(employmentHistory);
   return (
@@ -73,10 +71,6 @@ export default function DataProcessing({ children }) {
         professionalSummary,
         handleEmploymentDetails,
         jobDescription,
-        startDate,
-        endDate,
-        setStartDate,
-        setEndDate,
         employmentAccordionexpanded,
         handleEmploymentAccordion,
         handleAddEmploymentHistory,
@@ -84,6 +78,8 @@ export default function DataProcessing({ children }) {
         removeEmploymentHistory,
         setEmploymentHistory,
         employmentHistory,
+        employmentStartDate,
+        employmentEndDate,
       }}
     >
       {children}
