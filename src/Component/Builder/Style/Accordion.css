@@ -5,33 +5,20 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  color: transparent;
   top: 50%;
   left: 100%;
   transform: translateY(-50%);
-  color: transparent;
+}
+.accordion-summary:hover .accordion-remove-button {
+  color: #9fa6bb;
 }
 .accordion-summary:hover .accordion-title {
   color: #1a91f0;
 }
-.accordion-remove-button:hover .remove-button {
+.accordion-summary:hover .accordion-icon {
   color: #1a91f0;
-  }
-  .accordion-summary:hover + .accordion-remove-button .remove-button {
-    color: gray;
-    }
-
-.accordion-container {
-  position: relative;
 }
-
-/* .accordion-container {
-  position: relative;
+.accordion-remove-button:hover .remove-button {
+  color: red;
 }
-
-.delete-icon-button {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  display: none;
-  transform: translateY(-50%);
-} */

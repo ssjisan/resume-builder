@@ -50,7 +50,7 @@ export const SocialMediaData = () => {
     }
     if (socialMediaTitle) {
       setSocialMediaTitle(socialMediaTitle);
-      inputRef.current.style.width = `${socialMediaTitle.length}ch`;
+      // inputRef.current.style.width = `${socialMediaTitle.length}ch`;
     }
   }, []);
   const handleBlur = () => {

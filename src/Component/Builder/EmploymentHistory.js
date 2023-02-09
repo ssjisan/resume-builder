@@ -55,7 +55,7 @@ export default function EmploymentHistory() {
         A varied education on your resume sums up the value that your learnings
         and background will bring to job.
       </Typography>
-      <Box className="accordion-container">
+      <Box>
         <Accordion
           sx={{
             border: "1px solid #e7eaf4",
@@ -68,7 +68,7 @@ export default function EmploymentHistory() {
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={<ExpandMoreIcon className="accordion-icon" />}
             className="accordion-summary"
           >
             <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -107,16 +107,8 @@ export default function EmploymentHistory() {
                   {jobTitle} at {companyName}
                 </Typography>
               )}
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: 0,
-                  left: "100%",
-                }}
-              >
-                <Box size="large" className="accordion-remove-button">
-                  <DeleteOutlineRoundedIcon className="remove-button" />
-                </Box>
+              <Box className="accordion-remove-button">
+                <DeleteOutlineRoundedIcon className="remove-button" />
               </Box>
             </Box>
           </AccordionSummary>
@@ -266,9 +258,6 @@ export default function EmploymentHistory() {
             </Box>
           </AccordionDetails>
         </Accordion>
-        <Box className="accordion-remove-button" sx={{ ml: 1 }}>
-          <DeleteOutlineRoundedIcon className="remove-button" />
-        </Box>
       </Box>
       <Button
         sx={{
