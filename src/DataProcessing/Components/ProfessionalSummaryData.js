@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 export const ProfessionalSummaryData = () => {
-  const [professionalSummary, setProfessionalSummary] = useState("");
-  const handleEditorChange = (professionalSummary) => {
+  const [professionalSummary, setProfessionalSummary] = useState();
+  const handleEditorChange = (professionalSummary, editor) => {
     setProfessionalSummary(professionalSummary);
     localStorage.setItem("professional-summary", professionalSummary);
   };
@@ -12,5 +12,5 @@ export const ProfessionalSummaryData = () => {
     }
   }, []);
 
-  return { handleEditorChange, professionalSummary };
+  return { handleEditorChange, professionalSummary,setProfessionalSummary };
 };

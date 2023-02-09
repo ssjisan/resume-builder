@@ -29,8 +29,7 @@ export default function DataProcessing({ children }) {
   const handleAccordion = (i) => (event, newExpanded) => {
     setExpanded(newExpanded ? i : false);
   };
-  const { handleEditorChange, professionalSummary } = ProfessionalSummaryData();
-  console.log(professionalSummary);
+  const { handleEditorChange, professionalSummary, } = ProfessionalSummaryData();
   return (
     <DataContext.Provider
       value={{
@@ -54,7 +53,7 @@ export default function DataProcessing({ children }) {
         handlePersonalDetails,
         setPersonalDetails,
         handleEditorChange,
-        professionalSummary,
+        professionalSummary
       }}
     >
       {children}

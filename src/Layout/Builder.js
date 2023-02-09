@@ -44,7 +44,7 @@ export default function Builder() {
       <Progressbar />
       <PersonalDetails />
       <ProfessionalSummary />
-      {/* <EmploymentHistory /> */}
+      <EmploymentHistory />
       {/* <Education /> */}
       <WebsiteSocialLinks />
       {/* {order.map((name, index) => {

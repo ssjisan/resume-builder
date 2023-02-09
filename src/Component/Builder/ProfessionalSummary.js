@@ -4,7 +4,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import "./Style/EditorStyle.css";
 import { DataContext } from "../../DataProcessing/DataProcessing";
 export default function ProfessionalSummary() {
-  const { handleEditorChange, professionalSummary } = useContext(DataContext);
+  const { handleEditorChange, professionalSummary , } = useContext(DataContext);
 
   return (
     <Box
@@ -28,8 +28,10 @@ export default function ProfessionalSummary() {
       <Box>
         <Editor
           apiKey="q15jacj5azzopukv0hldcafwptxanxfvjsizqpn9y2jztsur"
+          value={professionalSummary}
           onEditorChange={handleEditorChange}
           init={{
+            auto_focus: false,
             directionality: "ltr",
             placeholder:
               "e.g. Passionate science teacher with 8+ years of experience and a track record of ...",
