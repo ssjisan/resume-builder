@@ -4,7 +4,9 @@ import {
   AccordionSummary,
   Box,
   Button,
+  Checkbox,
   Grid,
+  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -12,7 +14,7 @@ import React, { useContext } from "react";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker } from "@mui/x-date-pickers";
+import { DatePicker, MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
@@ -33,8 +35,13 @@ export default function EmploymentHistory() {
     employmentStartDate,
     employmentEndDate,
   } = useContext(DataContext);
+
   const MyActionBar = ({ onSetToday }) => {
-    return <Button onClick={onSetToday}> Current </Button>;
+    return (
+      <Box sx={{p:2}}>
+        <Button onClick={onSetToday}>Currently work here</Button>
+      </Box>
+    );
   };
   return (
     <Box
@@ -183,7 +190,7 @@ export default function EmploymentHistory() {
                     <Grid container spacing={2}>
                       <Grid item xs={12} lg={6}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DatePicker
+                          <MobileDatePicker
                             openTo="year"
                             views={["year", "month"]}
                             minDate={dayjs("2000-01-01")}
@@ -201,15 +208,12 @@ export default function EmploymentHistory() {
                                 fullWidth
                               />
                             )}
-                            components={{
-                              ActionBar: MyActionBar,
-                            }}
                           />
                         </LocalizationProvider>
                       </Grid>
                       <Grid item xs={12} lg={6}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DatePicker
+                          <MobileDatePicker
                             openTo="year"
                             views={["year", "month"]}
                             minDate={dayjs("2000-01-01")}
