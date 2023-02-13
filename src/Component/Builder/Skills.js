@@ -11,40 +11,23 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
 import "./Style/Accordion.css";
 import "./Style/EditorStyle.css";
+import { DataContext } from "../../DataProcessing/DataProcessing";
 
 export default function Skills() {
-  const [skill, setSkill] = useState([]);
-  const [skillAccordion, setSkillAccordion] = useState();
-  const handleSkillAccordion = (i) => (event, newExpanded) => {
-    setSkillAccordion(newExpanded ? i : false);
-  };
-  const handleSkill = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...skill];
-    list[index][name] = value;
-    setSkill(list);
-  };
-
-  const handleAddSkill = () => {
-    setSkill([
-      ...skill,
-      {
-        skill: "",
-        level: "",
-      },
-    ]);
-  };
-  const removeSkill = (i) => {
-    const list = [...skill];
-    list.splice(i, 1);
-    setSkill(list);
-  };
+  const {
+    skill,
+    skillAccordion,
+    handleSkillAccordion,
+    handleSkill,
+    handleAddSkill,
+    removeSkill,
+  } = useContext(DataContext);
   return (
     <Box
       sx={{

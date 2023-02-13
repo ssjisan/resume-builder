@@ -4,6 +4,7 @@ import { EducationData } from "./Components/EducationData";
 import { EmploymentHistoryData } from "./Components/EmploymentHistoryData";
 import { PersonalDetailsData } from "./Components/PersonalDetailsData";
 import { ProfessionalSummaryData } from "./Components/ProfessionalSummaryData";
+import { SkillData } from "./Components/SkillData";
 import { SocialMediaData } from "./Components/SocialMediaData";
 
 export const DataContext = createContext();
@@ -57,7 +58,14 @@ export default function DataProcessing({ children }) {
     educationStartDate,
     educationEndDate,
   } = EducationData();
-  console.log(employmentHistory);
+  const {
+    skill,
+    skillAccordion,
+    handleSkillAccordion,
+    handleSkill,
+    handleAddSkill,
+    removeSkill,
+  } = SkillData();
   return (
     <DataContext.Provider
       value={{
@@ -103,6 +111,12 @@ export default function DataProcessing({ children }) {
         educationAccordion,
         educationStartDate,
         educationEndDate,
+        skill,
+        skillAccordion,
+        handleSkillAccordion,
+        handleSkill,
+        handleAddSkill,
+        removeSkill,
       }}
     >
       {children}
