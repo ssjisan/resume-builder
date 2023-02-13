@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 
 export const EmploymentHistoryData = () => {
@@ -26,27 +26,39 @@ export const EmploymentHistoryData = () => {
     const list = [...employmentHistory];
     list[index][name] = value;
     setEmploymentHistory(list);
-    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+    localStorage.setItem(
+      "employment-history",
+      JSON.stringify(employmentHistory)
+    );
   };
   const employmentStartDate = (event, i) => {
     const list = [...employmentHistory];
     const date = dayjs(event).format("YYYY-MM-DD");
     list[i].startDate = date;
     setEmploymentHistory(list);
-    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+    localStorage.setItem(
+      "employment-history",
+      JSON.stringify(employmentHistory)
+    );
   };
   const employmentEndDate = (event, i) => {
     const list = [...employmentHistory];
     const date = dayjs(event).format("YYYY-MM-DD");
     list[i].endDate = date;
     setEmploymentHistory(list);
-    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+    localStorage.setItem(
+      "employment-history",
+      JSON.stringify(employmentHistory)
+    );
   };
   const handleEmploymentDetails = (content, i) => {
     const list = [...employmentHistory];
     list[i].jobDescription = content;
     setEmploymentHistory(list);
-    localStorage.setItem("employment-history", JSON.stringify(employmentHistory));
+    localStorage.setItem(
+      "employment-history",
+      JSON.stringify(employmentHistory)
+    );
   };
   const removeEmploymentHistory = (i) => {
     const list = [...employmentHistory];
@@ -55,7 +67,9 @@ export const EmploymentHistoryData = () => {
     localStorage.setItem("employment-history", JSON.stringify(list));
   };
   useEffect(() => {
-    const employmentData = JSON.parse(localStorage.getItem("employment-history"));
+    const employmentData = JSON.parse(
+      localStorage.getItem("employment-history")
+    );
     if (employmentData) {
       setEmploymentHistory(employmentData);
     }

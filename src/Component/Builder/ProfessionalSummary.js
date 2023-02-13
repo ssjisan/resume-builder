@@ -48,7 +48,7 @@ export default function ProfessionalSummary() {
               "lists",
             ],
             toolbar: "bold italic underline strikethrough | bullist numlist",
-            content_style: "body { font-size:16px ; font-weight: 500 }",
+            content_style: "body { font-size:16px ; font-weight: 450 }",
           }}
         />
       </Box>

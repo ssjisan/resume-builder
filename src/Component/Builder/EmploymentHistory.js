@@ -4,9 +4,7 @@ import {
   AccordionSummary,
   Box,
   Button,
-  Checkbox,
   Grid,
-  Switch,
   TextField,
   Typography,
 } from "@mui/material";
@@ -14,7 +12,7 @@ import React, { useContext } from "react";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker, MobileDatePicker } from "@mui/x-date-pickers";
+import { MobileDatePicker } from "@mui/x-date-pickers";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import "./Style/InputField.css";
@@ -36,10 +34,22 @@ export default function EmploymentHistory() {
     employmentEndDate,
   } = useContext(DataContext);
 
-  const MyActionBar = ({ onSetToday }) => {
+  const MyActionBar = ({ onSetToday, onChange, onAccept, onCancel }) => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleCheckboxClick = () => {
+    setChecked(!checked);
+    if (!checked) {
+      onChange("Present");
+    } else {
+      onSetToday();
+    }
+  };
     return (
-      <Box sx={{p:2}}>
-        <Button onClick={onSetToday}>Currently work here</Button>
+      <Box sx={{ p: 2 }}>
+        <Button onClick={handleCheckboxClick}>Currently work here</Button>
+        <Button onClick={onAccept}>Ok</Button>
+        <Button onClick={onCancel}>Cancel</Button>
       </Box>
     );
   };
@@ -130,7 +140,7 @@ export default function EmploymentHistory() {
                           color: "#828BA2",
                         }}
                       >
-                        {data?.startDate} - {data?.endDate}
+                        {data?.startDate} to {data?.endDate}
                       </Typography>
                     )}
                   </Box>
@@ -219,9 +229,9 @@ export default function EmploymentHistory() {
                             minDate={dayjs("2000-01-01")}
                             maxDate={dayjs()}
                             value={data.endDate}
-                            onChange={(newValue) =>
-                              employmentEndDate(newValue, i)
-                            }
+                            onChange={(newValue) => {
+                              employmentEndDate(newValue !== "Present" ? newValue : dayjs(), i);
+                            }}
                             renderInput={(params) => (
                               <TextField
                                 {...params}
@@ -289,7 +299,7 @@ export default function EmploymentHistory() {
                         toolbar:
                           "bold italic underline strikethrough | bullist numlist",
                         content_style:
-                          "body { font-size:16px ; font-weight: 500 }",
+                          "body { font-size:16px ; font-weight: 450 }",
                       }}
                     />
                   </Grid>

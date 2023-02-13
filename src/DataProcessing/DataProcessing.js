@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { AddSection } from "./Components/AddSection";
+import { EducationData } from "./Components/EducationData";
 import { EmploymentHistoryData } from "./Components/EmploymentHistoryData";
 import { PersonalDetailsData } from "./Components/PersonalDetailsData";
 import { ProfessionalSummaryData } from "./Components/ProfessionalSummaryData";
@@ -44,6 +45,18 @@ export default function DataProcessing({ children }) {
     employmentStartDate,
     employmentEndDate,
   } = EmploymentHistoryData();
+  const {
+    handleEducationDetails,
+    handleEducationAccordion,
+    handleAddEducation,
+    handleEducation,
+    removeEducation,
+    setEducation,
+    education,
+    educationAccordion,
+    educationStartDate,
+    educationEndDate,
+  } = EducationData();
   console.log(employmentHistory);
   return (
     <DataContext.Provider
@@ -80,6 +93,16 @@ export default function DataProcessing({ children }) {
         employmentHistory,
         employmentStartDate,
         employmentEndDate,
+        handleEducationDetails,
+        handleEducationAccordion,
+        handleAddEducation,
+        handleEducation,
+        removeEducation,
+        setEducation,
+        education,
+        educationAccordion,
+        educationStartDate,
+        educationEndDate,
       }}
     >
       {children}

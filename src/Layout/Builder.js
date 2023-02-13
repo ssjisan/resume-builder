@@ -50,7 +50,7 @@ export default function Builder() {
       <PersonalDetails />
       <ProfessionalSummary />
       <EmploymentHistory />
-      {/* <Education /> */}
+      <Education />
       {/* <WebsiteSocialLinks /> */}
       {/* {order.map((name, index) => {
         if (name === "reference") {
