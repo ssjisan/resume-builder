@@ -28,6 +28,7 @@ import AddSection from "../Component/Builder/AddSection";
 import { DataContext } from "../DataProcessing/DataProcessing";
 // eslint-disable-next-line
 import Test from "../Component/Builder/Test";
+import Skills from "../Component/Builder/Skills";
 
 export default function Builder() {
   // eslint-disable-next-line
@@ -51,6 +52,7 @@ export default function Builder() {
       <ProfessionalSummary />
       <EmploymentHistory />
       <Education />
+      <Skills />
       {/* <WebsiteSocialLinks /> */}
       {/* {order.map((name, index) => {
         if (name === "reference") {

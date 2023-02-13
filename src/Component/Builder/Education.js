@@ -65,7 +65,7 @@ export default function Education() {
       }}
     >
       <Typography sx={{ fontSize: "20px", fontWeight: 700 }} color="text.500">
-        Employment History
+        Education
       </Typography>
       <Typography sx={{ fontSize: "14px", mb: 2 }} color="text.400">
         A varied education on your resume sums up the value that your learnings
@@ -317,7 +317,7 @@ export default function Education() {
         }}
         onClick={handleAddEducation}
       >
-        + Add one more employment
+        + Add one more education
       </Button>
     </Box>
   );

@@ -34,25 +34,25 @@ export default function EmploymentHistory() {
     employmentEndDate,
   } = useContext(DataContext);
 
-  const MyActionBar = ({ onSetToday, onChange, onAccept, onCancel }) => {
-    const [checked, setChecked] = React.useState(false);
+  // const MyActionBar = ({ onSetToday, onChange, onAccept, onCancel }) => {
+  //   const [checked, setChecked] = React.useState(false);
 
-    const handleCheckboxClick = () => {
-    setChecked(!checked);
-    if (!checked) {
-      onChange("Present");
-    } else {
-      onSetToday();
-    }
-  };
-    return (
-      <Box sx={{ p: 2 }}>
-        <Button onClick={handleCheckboxClick}>Currently work here</Button>
-        <Button onClick={onAccept}>Ok</Button>
-        <Button onClick={onCancel}>Cancel</Button>
-      </Box>
-    );
-  };
+  //   const handleCheckboxClick = () => {
+  //   setChecked(!checked);
+  //   if (!checked) {
+  //     onChange("Present");
+  //   } else {
+  //     onSetToday();
+  //   }
+  // };
+  //   return (
+  //     <Box sx={{ p: 2 }}>
+  //       <Button onClick={handleCheckboxClick}>Currently work here</Button>
+  //       <Button onClick={onAccept}>Ok</Button>
+  //       <Button onClick={onCancel}>Cancel</Button>
+  //     </Box>
+  //   );
+  // };
   return (
     <Box
       sx={{
@@ -229,9 +229,9 @@ export default function EmploymentHistory() {
                             minDate={dayjs("2000-01-01")}
                             maxDate={dayjs()}
                             value={data.endDate}
-                            onChange={(newValue) => {
-                              employmentEndDate(newValue !== "Present" ? newValue : dayjs(), i);
-                            }}
+                            onChange={(newValue) =>
+                              employmentEndDate(newValue, i)
+                            }
                             renderInput={(params) => (
                               <TextField
                                 {...params}
@@ -241,9 +241,9 @@ export default function EmploymentHistory() {
                                 fullWidth
                               />
                             )}
-                            components={{
-                              ActionBar: MyActionBar,
-                            }}
+                            // components={{
+                            //   ActionBar: MyActionBar,
+                            // }}
                           />
                         </LocalizationProvider>
                       </Grid>
