@@ -53,7 +53,7 @@ export default function Builder() {
       <EmploymentHistory />
       <Education />
       <Skills />
-      {/* <WebsiteSocialLinks /> */}
+      <WebsiteSocialLinks />
       {/* {order.map((name, index) => {
         if (name === "reference") {
           return <References key={index} />;
